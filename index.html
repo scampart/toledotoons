@@ -69,11 +69,8 @@
   .btn-solid:hover { background: var(--red-ink); border-color: var(--red-ink); transform: translateY(-2px); }
   .btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
 
-  .gallery { display: grid; grid-template-columns: repeat(5, 1fr); gap: 3px; margin: 8px 0 0; }
-  .gallery-item { position: relative; aspect-ratio: 4 / 3; background: var(--bg-raised); overflow: hidden; }
-  .gallery-item img { width: 100%; height: 100%; object-fit: contain; display: block; filter: url(#duotoneCharcoal); }
-  @media (max-width: 900px) { .gallery { grid-template-columns: repeat(3, 1fr); } .gallery-item:nth-child(4), .gallery-item:nth-child(5) { display: none; } }
-  @media (max-width: 560px) { .gallery { grid-template-columns: repeat(2, 1fr); } .gallery-item:nth-child(3) { display: none; } }
+  .gallery { margin: 8px 0 0; line-height: 0; }
+  .gallery img { width: 100%; height: auto; display: block; }
 
   .section { padding: 70px 0; border-top: 1px solid var(--line); }
   .section-num { font-family: var(--font-mono); font-size: 12px; color: var(--red); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 10px; }
@@ -130,7 +127,7 @@
 
   .faq { border-top: 1px solid var(--line); }
   .faq-item { border-bottom: 1px solid var(--line); padding: 22px 0; }
-  .faq-item h3 { font-family: var(--font-body); font-weight: 600; font-size: 16.5px; margin: 0 0 8px; color: var(--ink); }
+  .faq-item h3 { font-family: var(--font-body); font-weight: 600; font-size: 16.5px; margin: 0 0 8px; color: var(--red); }
   .faq-item p { font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); margin: 0; }
 
   .cta { text-align: center; padding: 80px 0; border-top: 1px solid var(--line); }
@@ -158,7 +155,7 @@
       <h1>Get Drawn<br><em>Into The Fun.</em></h1>
       <p>Weddings, corporate parties, birthdays and fundraisers get live caricatures, drawn on the spot in black and white, full color or digital. Thirty years of experience turning your guests into the best souvenir of the night.</p>
       <div class="hero-actions">
-        <a class="btn btn-solid" href="https://scampart.com/#contact">Get a Quote</a>
+        <a class="btn btn-solid" href="contact.html">Get a Quote</a>
         <a class="btn btn-outline" href="#pricing">See Pricing</a>
       </div>
     </div>
@@ -191,22 +188,8 @@
       <img src="images/hero-artist-drawing.webp" alt="Illustrated artist sketching on a drawing board" width="1070" height="1470">
     </div>
   </div>
-  <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-    <filter id="duotoneCharcoal" color-interpolation-filters="sRGB">
-      <feColorMatrix type="matrix" values="0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0.2126 0.7152 0.0722 0 0  0 0 0 1 0"/>
-      <feComponentTransfer>
-        <feFuncR type="table" tableValues="0.0824 0.9098"/>
-        <feFuncG type="table" tableValues="0.0745 0.8510"/>
-        <feFuncB type="table" tableValues="0.0980 0.6902"/>
-      </feComponentTransfer>
-    </filter>
-  </svg>
   <div class="gallery">
-    <div class="gallery-item"><img src="images/gallery/comm-wedding-couple.webp" alt="Commission caricature of a wedding couple" loading="lazy"></div>
-    <div class="gallery-item"><img src="images/gallery/live-caricature-mustache-man.webp" alt="Live event caricature of a man with a mustache" loading="lazy"></div>
-    <div class="gallery-item"><img src="images/gallery/comm-comic-team-up.webp" alt="Commission caricature of a family as a superhero team" loading="lazy"></div>
-    <div class="gallery-item"><img src="images/gallery/live-caricature-boy-racing-cap.webp" alt="Live event caricature of a boy in a racing cap" loading="lazy"></div>
-    <div class="gallery-item"><img src="images/gallery/comm-muscle-car-road-trip.webp" alt="Commission caricature of friends on a road trip" loading="lazy"></div>
+    <img src="images/gallery/banner-strip.webp" alt="Strip of live event and commission caricatures in charcoal tone" loading="lazy">
   </div>
 </section>
 
@@ -462,7 +445,7 @@
   <div class="wrap">
     <h2>Let's Draw Your <em>Guests In.</em></h2>
     <p>Tell me your date, location and guest count, and I'll send a quote back within a day or two.</p>
-    <a class="btn btn-solid" href="https://scampart.com/#contact">Get a Quote &#8594;</a>
+    <a class="btn btn-solid" href="contact.html">Get a Quote &#8594;</a>
   </div>
 </section>
 

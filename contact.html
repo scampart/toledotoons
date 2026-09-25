@@ -1,0 +1,244 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Book Your Event | Toledo Toons</title>
+<meta name="description" content="Book live caricatures for your wedding, corporate event, birthday or fundraiser. Tell me your date, guest count and style, and I'll send a quote back within a day or two.">
+<link rel="canonical" href="https://toledotoons.com/contact.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;900&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #151319;
+    --bg-raised: #1E1C24;
+    --paper: #E8D9B0;
+    --ink: #E8D9B0;
+    --ink-soft: #B6B1A6;
+    --red: #E1503B;
+    --red-ink: #C43D2B;
+    --line: rgba(244,241,233,0.14);
+    --line-strong: rgba(244,241,233,0.28);
+    --font-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+    --font-body: "Work Sans", "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", "Consolas", monospace;
+    --font-hand: "Caveat", cursive;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 700px) { .wrap { padding: 0 20px; } }
+
+  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 40px; border-bottom: 1px solid var(--line); }
+  @media (max-width: 700px) { .topbar { padding: 16px 20px; } }
+  .mark-group { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+  .mark { font-family: var(--font-display); font-weight: 900; font-size: 20px; letter-spacing: 0.03em; text-decoration: none; color: var(--ink); }
+  .mark span { color: var(--red); text-transform: uppercase; font-weight: 900; }
+  .mark-sub { display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.706px; text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; }
+  .back-link { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 3px; }
+  .back-link:hover { color: var(--red); border-color: var(--red); }
+
+  .page-head { padding: 56px 0 8px; text-align: left; }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); border: 1px solid var(--line-strong); border-radius: 999px; padding: 7px 16px; margin-bottom: 22px; }
+  .kicker .dot { width: 7px; height: 7px; border-radius: 50%; background: #6FBF73; box-shadow: 0 0 0 3px rgba(111,191,115,0.18); }
+  .page-head h1 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(32px, 5vw, 50px); line-height: 0.98; margin: 0 0 18px; }
+  .page-head h1 em { font-style: normal; color: var(--red); }
+  .page-head p { max-width: 56ch; margin: 0; font-size: 16px; line-height: 1.65; color: var(--ink-soft); }
+
+  .contact-layout { padding: 44px 0 90px; }
+  .contact-grid { display: grid; grid-template-columns: 1fr 1.4fr; gap: 48px; align-items: start; }
+  @media (max-width: 860px) { .contact-grid { grid-template-columns: 1fr; } }
+
+  .side-card { border: 1px solid var(--line-strong); background: var(--bg-raised); padding: 26px 26px; }
+  .side-card h3 { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--red); margin: 0 0 14px; }
+  .side-card ul { list-style: none; margin: 0 0 26px; padding: 0; font-size: 14.5px; line-height: 2; color: var(--ink-soft); }
+  .side-card ul:last-child { margin-bottom: 0; }
+  .side-card li::before { content: "\2014  "; color: var(--red); }
+  .side-card a { color: var(--ink); text-decoration: none; border-bottom: 1px solid var(--line-strong); }
+  .side-card a:hover { color: var(--red); border-color: var(--red); }
+  .side-card .direct-email { display: block; margin-top: 4px; font-family: var(--font-mono); font-size: 13.5px; }
+
+  form.cform { display: grid; gap: 18px; }
+  .cform .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 560px) { .cform .row2 { grid-template-columns: 1fr; } }
+  .cform label { display: block; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+  .cform label i { color: var(--red); font-style: normal; }
+  .cform input[type="text"], .cform input[type="email"], .cform input[type="tel"], .cform input[type="date"], .cform input[type="number"], .cform textarea {
+    width: 100%; background: var(--bg-raised); border: 1px solid var(--line-strong); border-radius: 2px; color: var(--ink);
+    font-family: var(--font-body); font-size: 15px; padding: 13px 14px; outline: none; transition: border-color .15s ease;
+  }
+  .cform input:focus, .cform textarea:focus { border-color: var(--red); }
+  .cform textarea { min-height: 130px; resize: vertical; }
+  .cform .hp { position: absolute; left: -9999px; }
+
+  .chip-group { display: flex; flex-wrap: wrap; gap: 10px; }
+  .chip-group label { display: inline-flex; margin-bottom: 0; width: auto; }
+  .chip-group input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .chip-group span { display: inline-flex; align-items: center; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; text-transform: uppercase; padding: 10px 16px; border: 1px solid var(--line-strong); border-radius: 999px; color: var(--ink-soft); cursor: pointer; transition: border-color .15s ease, background .15s ease, color .15s ease; }
+  .chip-group input:checked + span { background: var(--red); border-color: var(--red); color: #191016; font-weight: 600; }
+  .chip-group span:hover { border-color: var(--ink); }
+
+  .cform .csend { display: flex; align-items: center; gap: 18px; margin-top: 6px; }
+  .cform button[type="submit"] { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; padding: 16px 30px; background: var(--red); border: 1px solid var(--red); color: #191016; font-weight: 700; border-radius: 2px; cursor: pointer; transition: background .15s ease, transform .15s ease; }
+  .cform button[type="submit"]:hover { background: var(--red-ink); border-color: var(--red-ink); transform: translateY(-2px); }
+  .cform button[type="submit"]:disabled { opacity: 0.6; cursor: default; transform: none; }
+  .cstatus { font-size: 13px; color: var(--ink-soft); margin: 0; }
+  .cstatus.error { color: var(--red); }
+
+  .cthanks { display: none; text-align: center; padding: 50px 10px; border: 1px solid var(--line-strong); background: var(--bg-raised); }
+  .cthanks.show { display: block; }
+  .cthanks h2 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 30px; margin: 0 0 12px; }
+  .cthanks h2 em { font-style: normal; color: var(--red); }
+  .cthanks p { color: var(--ink-soft); max-width: 42ch; margin: 0 auto; }
+
+  .copyright { text-align: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-soft); padding: 34px 20px 40px; border-top: 1px solid var(--line); }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="mark-group">
+    <a class="mark" href="index.html">Toledo <span>Toons</span></a>
+    <span class="mark-sub">A ScampArt Production</span>
+  </div>
+  <a class="back-link" href="index.html">&#8592; Back to Toledo Toons</a>
+</div>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="kicker"><span class="dot"></span>Booking Now for 2026 &amp; 2027</span>
+    <h1>Let's Book Your <em>Event.</em></h1>
+    <p>Tell me your date, location and guest count below, and I'll send a quote back within a day or two. No account, no login, just the details.</p>
+  </div>
+</section>
+
+<section class="contact-layout">
+  <div class="wrap contact-grid">
+    <div class="side-card">
+      <h3>What I Need From You</h3>
+      <ul>
+        <li>Event date and location</li>
+        <li>Approximate guest count</li>
+        <li>Black &amp; white, full color or digital</li>
+        <li>Any add-ons you're considering</li>
+      </ul>
+      <h3>Or Reach Out Directly</h3>
+      <ul>
+        <li>Usually replies within 1&ndash;2 business days
+          <span class="direct-email"><a href="mailto:scampart@gmail.com">scampart@gmail.com</a></span>
+        </li>
+        <li>Free travel within 45 miles of Sylvania / Toledo, Ohio</li>
+      </ul>
+    </div>
+
+    <div>
+      <form class="cform" method="POST" action="https://formspree.io/f/mqpabwyj" id="cForm">
+        <p class="hp"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <input type="hidden" name="_subject" value="Toledo Toons booking inquiry">
+        <input type="hidden" name="source" value="toledotoons.com">
+        <div class="row2">
+          <div>
+            <label for="cName">Your name <i>*</i></label>
+            <input id="cName" name="name" type="text" required autocomplete="name">
+          </div>
+          <div>
+            <label for="cEmail">Email <i>*</i></label>
+            <input id="cEmail" name="email" type="email" required autocomplete="email">
+          </div>
+        </div>
+        <div class="row2">
+          <div>
+            <label for="cPhone">Phone</label>
+            <input id="cPhone" name="phone" type="tel" autocomplete="tel">
+          </div>
+          <div>
+            <label for="cDate">Event date</label>
+            <input id="cDate" name="event_date" type="date">
+          </div>
+        </div>
+        <div class="row2">
+          <div>
+            <label for="cLocation">Event location</label>
+            <input id="cLocation" name="location" type="text" placeholder="Venue or city">
+          </div>
+          <div>
+            <label for="cGuests">Approximate guest count</label>
+            <input id="cGuests" name="guest_count" type="number" min="1" placeholder="e.g. 100">
+          </div>
+        </div>
+        <div>
+          <label id="cEventTypeLbl">Event type</label>
+          <div class="chip-group" role="radiogroup" aria-labelledby="cEventTypeLbl">
+            <label><input type="radio" name="event_type" value="Wedding" checked><span>Wedding</span></label>
+            <label><input type="radio" name="event_type" value="Corporate Event"><span>Corporate Event</span></label>
+            <label><input type="radio" name="event_type" value="Birthday"><span>Birthday</span></label>
+            <label><input type="radio" name="event_type" value="Fundraiser"><span>Fundraiser</span></label>
+            <label><input type="radio" name="event_type" value="School / Church Event"><span>School / Church</span></label>
+            <label><input type="radio" name="event_type" value="Other"><span>Other</span></label>
+          </div>
+        </div>
+        <div>
+          <label id="cStyleLbl">Preferred style</label>
+          <div class="chip-group" role="radiogroup" aria-labelledby="cStyleLbl">
+            <label><input type="radio" name="style" value="Black & White" checked><span>Black &amp; White</span></label>
+            <label><input type="radio" name="style" value="Full Color"><span>Full Color</span></label>
+            <label><input type="radio" name="style" value="Digital"><span>Digital</span></label>
+            <label><input type="radio" name="style" value="Not sure yet"><span>Not Sure Yet</span></label>
+          </div>
+        </div>
+        <div>
+          <label for="cMsg">Anything else I should know?</label>
+          <textarea id="cMsg" name="message" placeholder="Add-ons you're considering, timing, questions, anything at all."></textarea>
+        </div>
+        <div class="csend">
+          <button type="submit" id="cSend">Send Booking Request</button>
+          <p class="cstatus" id="cStatus" role="status"></p>
+        </div>
+      </form>
+
+      <div class="cthanks" id="cThanks">
+        <h2>Thank <em>You.</em></h2>
+        <p>Your request is in. I'll follow up with availability and pricing within a day or two.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<p class="copyright">&copy; Toledo Toons. Live caricatures by Shawn Camp / Scamp Art</p>
+
+<script>
+(function () {
+  "use strict";
+  var form = document.getElementById("cForm");
+  var status = document.getElementById("cStatus");
+  var sendBtn = document.getElementById("cSend");
+  var thanks = document.getElementById("cThanks");
+  if (!form) return;
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    status.textContent = "Sending...";
+    status.classList.remove("error");
+    sendBtn.disabled = true;
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    }).then(function (r) {
+      if (!r.ok) throw new Error("bad");
+      form.hidden = true;
+      status.textContent = "";
+      thanks.classList.add("show");
+      thanks.scrollIntoView({ behavior: "smooth", block: "center" });
+    }).catch(function () {
+      status.textContent = "Something went wrong. Please email scampart@gmail.com directly.";
+      status.classList.add("error");
+      sendBtn.disabled = false;
+    });
+  });
+})();
+</script>
+
+</body>
+</html>

@@ -48,8 +48,7 @@
   .hero-art { position: relative; display: flex; justify-content: center; align-items: flex-end; height: 100%; }
   .hero-art img { position: relative; z-index: 1; max-width: 360px; width: 100%; height: auto; display: block; filter: drop-shadow(0 24px 34px rgba(0,0,0,0.5)); }
   .art-blob { position: absolute; left: 50%; top: 50%; width: 118%; max-width: 620px; aspect-ratio: 1; transform: translate(-50%, -50%); overflow: visible; z-index: 0; pointer-events: none; }
-  .hero-badge { position: absolute; left: 0%; top: 4%; z-index: 2; transform: rotate(-10deg); pointer-events: none; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(14px, 1.7vw, 20px); line-height: 1; color: var(--paper); background: var(--red); padding: 8px 12px; border-radius: 4px; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.45)); }
-  .hero-badge span { display: block; font-family: var(--font-mono); font-weight: 500; font-size: 8.5px; letter-spacing: 0.08em; margin-top: 2px; }
+  .hero-art .hero-logo { position: absolute; left: 26%; top: 14%; width: clamp(96px, 11vw, 150px); max-width: none; height: auto; transform: rotate(-10deg); z-index: 0; pointer-events: none; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.45)); }
   @media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; text-align: center; } .hero-copy { text-align: center; } .hero-art { order: -1; max-width: 260px; margin: 0 auto; } .hero-actions { justify-content: center; } }
 
   .showcase .wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center; }
@@ -115,6 +114,19 @@
   .policy h3 { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--red); margin: 0 0 10px; }
   .policy p { font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0; }
 
+  .filter-chips { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 34px; }
+  .filter-chip { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 9px 18px; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; color: var(--ink-soft); cursor: pointer; transition: border-color .15s ease, color .15s ease, background .15s ease; }
+  .filter-chip:hover { border-color: var(--ink); color: var(--ink); }
+  .filter-chip.active { background: var(--red); border-color: var(--red); color: #191016; font-weight: 600; }
+  .work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
+  @media (max-width: 900px) { .work-grid { grid-template-columns: repeat(3, 1fr); } }
+  @media (max-width: 620px) { .work-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
+  .work-item { position: relative; overflow: hidden; background: var(--bg-raised); aspect-ratio: 1; }
+  .work-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
+  .work-item:hover img { transform: scale(1.06); }
+  .work-item .badge { position: absolute; left: 8px; bottom: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; color: #fff; background: rgba(21,19,25,0.72); padding: 5px 10px; border-radius: 999px; pointer-events: none; }
+  .work-item.hide { display: none; }
+
   .faq { border-top: 1px solid var(--line); }
   .faq-item { border-bottom: 1px solid var(--line); padding: 22px 0; }
   .faq-item h3 { font-family: var(--font-body); font-weight: 600; font-size: 16.5px; margin: 0 0 8px; color: var(--ink); }
@@ -174,7 +186,7 @@
         </defs>
         <circle cx="300" cy="300" r="235" fill="url(#splatFallHero)" filter="url(#splatterHero)"/>
       </svg>
-      <div class="hero-badge">Toledo<br>Toons<span>Live Caricatures</span></div>
+      <img class="hero-logo" src="images/toledo-toons-logo.webp" alt="Toledo Toons logo">
       <img src="images/hero-artist-drawing.webp" alt="Illustrated artist sketching on a drawing board" width="1070" height="1470">
     </div>
   </div>
@@ -278,9 +290,71 @@
   </div>
 </section>
 
+<section class="section" id="gallery-work">
+  <div class="wrap">
+    <p class="section-num">03 / Gallery</p>
+    <h2>See The <em>Work.</em></h2>
+    <p class="lede">A mix of live event drawings and digital commissions, black and white, full color and digital.</p>
+    <div class="filter-chips">
+      <button class="filter-chip active" data-filter="all">All</button>
+      <button class="filter-chip" data-filter="live">Live Events</button>
+      <button class="filter-chip" data-filter="commission">Commissions</button>
+    </div>
+    <div class="work-grid">
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-comic-team-up.webp" alt="Color caricature of a family as a superhero team" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-boy-racing-cap.webp" alt="Live event caricature of a boy in a racing cap" loading="lazy"><span class="badge">Live</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-bw-elderly-couple-scowl.webp" alt="Black and white caricature of a couple" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-young-man.webp" alt="Live event caricature of a young man" loading="lazy"><span class="badge">Live</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-explorer-travel.webp" alt="Color caricature of an explorer with a telescope" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-man-mohawk.webp" alt="Live event caricature of a man with a mohawk" loading="lazy"><span class="badge">Live</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-bw-elderly-couple-smiling.webp" alt="Black and white caricature of a smiling couple" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-mustache-man.webp" alt="Live event caricature of a man with a mustache" loading="lazy"><span class="badge">Live</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-wedding-couple.webp" alt="Color caricature of a wedding couple" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-man-red-cap.webp" alt="Live event caricature of a man in a red cap" loading="lazy"><span class="badge">Live</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-bw-young-woman.webp" alt="Black and white caricature of a young woman" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-bearded-man.webp" alt="Live event caricature of a bearded man" loading="lazy"><span class="badge">Live</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-muscle-car-road-trip.webp" alt="Color caricature of friends on a road trip" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-teen-sports-cap.webp" alt="Live event caricature of a teen in a sports cap" loading="lazy"><span class="badge">Live</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-bw-man-portrait.webp" alt="Black and white caricature portrait of a man" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-boy-braces.webp" alt="Live event caricature of a boy with braces" loading="lazy"><span class="badge">Live</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-quality-control.webp" alt="Color caricature for a quality control team" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-brooklyn-man.webp" alt="Live event caricature of a man in a Brooklyn tank top" loading="lazy"><span class="badge">Live</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-50th-birthday.webp" alt="Color caricature for a 50th birthday" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-couple.webp" alt="Live event caricature of a couple" loading="lazy"><span class="badge">Live</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-frequent-flyer.webp" alt="Color caricature of a woman with award medals" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-anniversary-couple.webp" alt="Color caricature of an anniversary couple" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-drummer-boy.webp" alt="Color caricature of a boy playing a drum" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-watering-can-woman.webp" alt="Color caricature of a woman watering plants" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-retro-villain.webp" alt="Retro style color caricature portrait" loading="lazy"><span class="badge">Commission</span></div>
+      <div class="work-item" data-category="commission"><img src="images/gallery/comm-cheerleader.webp" alt="Color caricature of a cheerleader" loading="lazy"><span class="badge">Commission</span></div>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var chips = document.querySelectorAll('.filter-chip');
+  var items = document.querySelectorAll('.work-item');
+  chips.forEach(function(chip){
+    chip.addEventListener('click', function(){
+      chips.forEach(function(c){ c.classList.remove('active'); });
+      chip.classList.add('active');
+      var filter = chip.getAttribute('data-filter');
+      items.forEach(function(item){
+        if (filter === 'all' || item.getAttribute('data-category') === filter) {
+          item.classList.remove('hide');
+        } else {
+          item.classList.add('hide');
+        }
+      });
+    });
+  });
+})();
+</script>
+
 <section class="section" id="addons">
   <div class="wrap">
-    <p class="section-num">03 / Add-Ons</p>
+    <p class="section-num">04 / Add-Ons</p>
     <h2>Make It <em>Extra.</em></h2>
     <p class="lede">Optional touches for weddings and corporate events. Add any of these to any booking.</p>
     <div class="rate-cards">
@@ -319,7 +393,7 @@
 
 <section class="section">
   <div class="wrap">
-    <p class="section-num">04 / Good To Know</p>
+    <p class="section-num">05 / Good To Know</p>
     <h2>Travel, Deposits <em>&amp; Booking.</em></h2>
     <div class="policy-grid">
       <div class="policy">
@@ -340,7 +414,7 @@
 
 <section class="section faq">
   <div class="wrap">
-    <p class="section-num">05 / FAQ</p>
+    <p class="section-num">06 / FAQ</p>
     <h2>Questions <em>People Ask.</em></h2>
     <div class="faq-item">
       <h3>How many people can you draw per hour?</h3>

@@ -36,7 +36,7 @@
   .mark-group { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
   .mark { font-family: var(--font-display); font-weight: 900; font-size: 20px; letter-spacing: 0.03em; text-decoration: none; color: var(--ink); }
   .mark span { color: var(--red); text-transform: uppercase; font-weight: 900; }
-  .mark-sub { display: block; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.706px; text-transform: uppercase; color: var(--ink-soft); white-space: nowrap; }
+  .mark-sub { display: inline-block; white-space: nowrap; transform-origin: left top; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: normal; text-transform: uppercase; color: var(--ink-soft); }
   .back-link { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 3px; }
   .back-link:hover { color: var(--red); border-color: var(--red); }
 
@@ -94,17 +94,49 @@
   .cthanks p { color: var(--ink-soft); max-width: 42ch; margin: 0 auto; }
 
   .copyright { text-align: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-soft); padding: 34px 20px 40px; border-top: 1px solid var(--line); }
+
+  .contact-ribbon { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 30; display: flex; flex-direction: row-reverse; align-items: stretch; }
+  .contact-ribbon .cr-tab { writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; background: var(--red); color: #191016; border: 0; padding: 20px 9px; cursor: pointer; white-space: nowrap; border-radius: 0 8px 8px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.45); }
+  .contact-ribbon .cr-panel { max-width: 0; overflow: hidden; white-space: nowrap; background: var(--paper); color: #1a1620; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 14px 0; transition: max-width .25s ease; border-radius: 8px 0 0 8px; }
+  .contact-ribbon.open .cr-panel { max-width: 320px; }
+  .contact-ribbon .cr-panel a { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.04em; padding: 0 20px; color: #1a1620; text-decoration: none; }
+  .contact-ribbon .cr-panel a:hover { color: var(--red-ink); }
+  @media (hover: hover) { .contact-ribbon:hover .cr-panel { max-width: 320px; } }
+  @media (max-width: 780px) { .contact-ribbon .cr-tab { padding: 14px 7px; font-size: 10.5px; } .contact-ribbon.open .cr-panel { max-width: 250px; } }
+  .to-top { position: absolute; right: 0; top: 100%; margin-top: 10px; width: 34px; height: 34px; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; background: var(--bg-raised); color: var(--red); border: 1px solid var(--red); border-right: 0; border-radius: 8px 0 0 8px; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease, visibility .2s, background .15s ease, color .15s ease; }
+  .to-top.show { opacity: 1; visibility: visible; transform: none; }
+  .to-top:hover, .to-top:focus-visible { background: var(--red); color: #191016; }
+  .to-top svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
 </style>
 </head>
 <body>
 
 <div class="topbar">
   <div class="mark-group">
-    <a class="mark" href="index.html">Toledo <span>Toons</span></a>
-    <span class="mark-sub">A ScampArt Production</span>
+    <a class="mark" id="markMain" href="index.html">Toledo <span>Toons</span></a>
+    <span class="mark-sub" id="markSub">A ScampArt Production</span>
   </div>
   <a class="back-link" href="index.html">&#8592; Back to Toledo Toons</a>
 </div>
+<script>
+(function(){
+  function matchWidth(){
+    var mark = document.getElementById('markMain');
+    var sub = document.getElementById('markSub');
+    if(!mark || !sub) return;
+    sub.style.transform = 'none';
+    var markWidth = mark.getBoundingClientRect().width;
+    var subWidth = sub.getBoundingClientRect().width;
+    if(subWidth > 0 && markWidth > 0){
+      sub.style.transform = 'scaleX(' + (markWidth / subWidth) + ')';
+    }
+  }
+  matchWidth();
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(matchWidth); }
+  window.addEventListener('load', matchWidth);
+  window.addEventListener('resize', matchWidth);
+})();
+</script>
 
 <section class="page-head">
   <div class="wrap">
@@ -236,6 +268,39 @@
       status.classList.add("error");
       sendBtn.disabled = false;
     });
+  });
+})();
+</script>
+
+<div class="contact-ribbon" id="contactRibbon">
+  <button type="button" class="cr-tab" id="crTab" aria-expanded="false" aria-controls="crPanel">Get A Quote</button>
+  <div class="cr-panel" id="crPanel">
+    <a href="mailto:scampart@gmail.com">scampart@gmail.com</a>
+    <a href="#cForm">Fill Out The Form &#8594;</a>
+  </div>
+  <button type="button" class="to-top" id="toTop" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg></button>
+</div>
+
+<script>
+(function () {
+  var r = document.getElementById("contactRibbon"), t = document.getElementById("crTab");
+  if (!r || !t) return;
+  t.addEventListener("click", function (e) {
+    e.stopPropagation();
+    var o = r.classList.toggle("open");
+    t.setAttribute("aria-expanded", String(o));
+  });
+  document.addEventListener("click", function (e) {
+    if (!r.contains(e.target)) { r.classList.remove("open"); t.setAttribute("aria-expanded", "false"); }
+  });
+})();
+(function () {
+  var btn = document.getElementById("toTop"); if (!btn) return;
+  function update() { btn.classList.toggle("show", (window.pageYOffset || document.documentElement.scrollTop) > 500); }
+  window.addEventListener("scroll", update, { passive: true }); update();
+  btn.addEventListener("click", function () {
+    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: still ? "auto" : "smooth" });
   });
 })();
 </script>

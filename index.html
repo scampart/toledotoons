@@ -124,6 +124,14 @@
   .work-item:hover img { transform: scale(1.06); }
   .work-item .badge { position: absolute; left: 8px; bottom: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; color: #fff; background: rgba(21,19,25,0.72); padding: 5px 10px; border-radius: 999px; pointer-events: none; }
   .work-item.hide { display: none; }
+  .work-item img { cursor: zoom-in; }
+
+  .lightbox { position: fixed; inset: 0; z-index: 100; display: none; align-items: center; justify-content: center; background: rgba(10,9,12,0.92); padding: 40px 20px; }
+  .lightbox.open { display: flex; }
+  .lightbox img { max-width: min(92vw, 1100px); max-height: 88vh; width: auto; height: auto; display: block; box-shadow: 0 30px 70px rgba(0,0,0,0.6); border-radius: 4px; }
+  .lightbox-close { position: absolute; top: 22px; right: 26px; width: 42px; height: 42px; display: flex; align-items: center; justify-content: center; background: var(--bg-raised); border: 1px solid var(--line-strong); border-radius: 50%; color: var(--ink); cursor: pointer; font-size: 22px; line-height: 1; }
+  .lightbox-close:hover { border-color: var(--red); color: var(--red); }
+  @media (max-width: 620px) { .lightbox-close { top: 14px; right: 14px; width: 38px; height: 38px; } }
 
   .faq { border-top: 1px solid var(--line); }
   .faq-item { border-bottom: 1px solid var(--line); padding: 22px 0; }
@@ -190,6 +198,7 @@
         <a class="btn btn-solid" href="contact.html">Get a Quote</a>
         <a class="btn btn-outline" href="#gallery-work">See Samples</a>
         <a class="btn btn-outline" href="#pricing">See Pricing</a>
+        <a class="btn btn-outline" href="order.html">Order Online</a>
       </div>
     </div>
     <div class="hero-art">
@@ -399,6 +408,30 @@
 })();
 </script>
 
+<div class="lightbox" id="lightbox">
+  <button type="button" class="lightbox-close" id="lightboxClose" aria-label="Close">&times;</button>
+  <img id="lightboxImg" src="" alt="">
+</div>
+<script>
+(function(){
+  var box = document.getElementById('lightbox');
+  var boxImg = document.getElementById('lightboxImg');
+  var closeBtn = document.getElementById('lightboxClose');
+  if (!box || !boxImg || !closeBtn) return;
+  document.querySelectorAll('.work-item img').forEach(function(img){
+    img.addEventListener('click', function(){
+      boxImg.src = img.src;
+      boxImg.alt = img.alt;
+      box.classList.add('open');
+    });
+  });
+  function close(){ box.classList.remove('open'); boxImg.src = ''; }
+  closeBtn.addEventListener('click', close);
+  box.addEventListener('click', function(e){ if (e.target === box) close(); });
+  document.addEventListener('keydown', function(e){ if (e.key === 'Escape') close(); });
+})();
+</script>
+
 <section class="section" id="addons">
   <div class="wrap">
     <p class="section-num">04 / Add-Ons</p>
@@ -509,6 +542,7 @@
   <div class="cr-panel" id="crPanel">
     <a href="mailto:scampart@gmail.com">scampart@gmail.com</a>
     <a href="contact.html">Book Your Event &#8594;</a>
+    <a href="order.html">Order Online &#8594;</a>
   </div>
   <button type="button" class="to-top" id="toTop" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg></button>
 </div>

@@ -1,0 +1,556 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Order a Digital Caricature | Toledo Toons</title>
+<meta name="description" content="Order a custom digital caricature from a photo. Choose face only or face and body, black and white or full color, and see your price instantly.">
+<link rel="canonical" href="https://toledotoons.com/order.html">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;900&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #151319;
+    --bg-raised: #1E1C24;
+    --paper: #E8D9B0;
+    --ink: #E8D9B0;
+    --ink-soft: #B6B1A6;
+    --red: #E1503B;
+    --red-ink: #C43D2B;
+    --line: rgba(244,241,233,0.14);
+    --line-strong: rgba(244,241,233,0.28);
+    --font-display: "Big Shoulders Display", "Arial Narrow", sans-serif;
+    --font-body: "Work Sans", "Segoe UI", sans-serif;
+    --font-mono: "JetBrains Mono", "Consolas", monospace;
+    --font-hand: "Caveat", cursive;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body { background: var(--bg); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
+  .wrap { max-width: 900px; margin: 0 auto; padding: 0 40px; }
+  @media (max-width: 700px) { .wrap { padding: 0 20px; } }
+
+  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 40px; border-bottom: 1px solid var(--line); }
+  @media (max-width: 700px) { .topbar { padding: 16px 20px; } }
+  .mark-group { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
+  .mark { font-family: var(--font-display); font-weight: 900; font-size: 20px; letter-spacing: 0.03em; text-decoration: none; color: var(--ink); }
+  .mark span { color: var(--red); text-transform: uppercase; font-weight: 900; }
+  .mark-sub { display: inline-block; white-space: nowrap; transform-origin: left top; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: normal; text-transform: uppercase; color: var(--ink-soft); }
+  .back-link { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 3px; }
+  .back-link:hover { color: var(--red); border-color: var(--red); }
+
+  .page-head { padding: 56px 0 8px; text-align: left; }
+  .kicker { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); border: 1px solid var(--line-strong); border-radius: 999px; padding: 7px 16px; margin-bottom: 22px; }
+  .kicker .dot { width: 7px; height: 7px; border-radius: 50%; background: #6FBF73; box-shadow: 0 0 0 3px rgba(111,191,115,0.18); }
+  .page-head h1 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(32px, 5vw, 50px); line-height: 0.98; margin: 0 0 18px; }
+  .page-head h1 em { font-style: normal; color: var(--red); }
+  .page-head p { max-width: 60ch; margin: 0; font-size: 16px; line-height: 1.65; color: var(--ink-soft); }
+
+  .order-layout { padding: 44px 0 90px; }
+  .order-grid { display: grid; grid-template-columns: 1.3fr 1fr; gap: 48px; align-items: start; }
+  @media (max-width: 900px) { .order-grid { grid-template-columns: 1fr; } }
+
+  .step { margin: 0 0 32px; }
+  .step-num { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); margin: 0 0 10px; }
+  .step h3 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 22px; margin: 0 0 14px; }
+
+  .option-cards { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; }
+  @media (max-width: 480px) { .option-cards { grid-template-columns: 1fr; } }
+  .option-card { position: relative; }
+  .option-card input { position: absolute; opacity: 0; width: 0; height: 0; }
+  .option-card span { display: block; border: 1px solid var(--line-strong); border-radius: 4px; padding: 18px 18px; cursor: pointer; transition: border-color .15s ease, background .15s ease; }
+  .option-card .oc-title { display: block; font-family: var(--font-mono); font-size: 13.5px; letter-spacing: 0.05em; text-transform: uppercase; font-weight: 700; color: var(--ink); margin-bottom: 6px; }
+  .option-card .oc-sub { display: block; font-size: 13px; color: var(--ink-soft); line-height: 1.5; }
+  .option-card input:checked + span { border-color: var(--red); background: rgba(225,80,59,0.1); }
+  .option-card input:checked + span .oc-title { color: var(--red); }
+  .option-card input:focus-visible + span { outline: 2px solid var(--red); outline-offset: 2px; }
+  .oc-icon { display: block; margin: 0 0 12px; color: var(--ink-soft); transition: color .15s ease; }
+  .option-card input:checked + span .oc-icon { color: var(--red); }
+
+  .stepper { display: inline-flex; align-items: center; gap: 0; border: 1px solid var(--line-strong); border-radius: 4px; overflow: hidden; }
+  .stepper button { width: 44px; height: 44px; background: var(--bg-raised); border: 0; color: var(--ink); font-size: 20px; cursor: pointer; font-family: var(--font-mono); }
+  .stepper button:hover { background: var(--red); color: #191016; }
+  .stepper input { width: 64px; height: 44px; text-align: center; border: 0; border-left: 1px solid var(--line-strong); border-right: 1px solid var(--line-strong); background: var(--bg); color: var(--ink); font-family: var(--font-mono); font-size: 16px; -moz-appearance: textfield; }
+  .stepper input::-webkit-outer-spin-button, .stepper input::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+  .people-note { margin: 10px 0 0; font-size: 13px; color: var(--ink-soft); }
+  .people-note.warn { color: var(--red); }
+
+  .body-desc { margin-top: 18px; display: none; }
+  .body-desc.show { display: block; }
+  .body-desc label { display: block; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+  .body-desc label i { color: var(--red); font-style: normal; }
+  .body-desc textarea { width: 100%; min-height: 110px; background: var(--bg-raised); border: 1px solid var(--line-strong); border-radius: 2px; color: var(--ink); font-family: var(--font-body); font-size: 15px; padding: 13px 14px; outline: none; resize: vertical; transition: border-color .15s ease; }
+  .body-desc textarea:focus { border-color: var(--red); }
+
+  form.cform { display: grid; gap: 18px; margin-top: 6px; }
+  .cform .row2 { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+  @media (max-width: 560px) { .cform .row2 { grid-template-columns: 1fr; } }
+  .cform label.flabel { display: block; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); margin-bottom: 8px; }
+  .cform label.flabel i { color: var(--red); font-style: normal; }
+  .cform input[type="text"], .cform input[type="email"], .cform input[type="tel"], .cform input[type="file"] {
+    width: 100%; background: var(--bg-raised); border: 1px solid var(--line-strong); border-radius: 2px; color: var(--ink);
+    font-family: var(--font-body); font-size: 15px; padding: 13px 14px; outline: none; transition: border-color .15s ease;
+  }
+  .cform input:focus { border-color: var(--red); }
+  .cform .hp { position: absolute; left: -9999px; }
+  .file-note { font-size: 12.5px; color: var(--ink-soft); margin: 6px 0 0; }
+
+  .upload-drop { position: relative; border: 1px dashed var(--line-strong); border-radius: 4px; padding: 30px 20px; text-align: center; transition: border-color .15s ease, background .15s ease; }
+  .upload-drop.dragover { border-color: var(--red); background: rgba(225,80,59,0.08); }
+  .upload-drop input[type="file"] { position: absolute; inset: 0; width: 100%; height: 100%; opacity: 0; cursor: pointer; }
+  .upload-drop .ud-main { font-family: var(--font-mono); font-size: 13.5px; letter-spacing: 0.03em; text-transform: uppercase; color: var(--ink); margin: 0 0 6px; }
+  .upload-drop .ud-main .ud-link { color: var(--red); text-decoration: underline; }
+  .upload-drop .ud-sub { font-size: 12.5px; color: var(--ink-soft); margin: 0; }
+  .file-list { list-style: none; margin: 12px 0 0; padding: 0; display: grid; gap: 6px; }
+  .file-list li { display: flex; align-items: center; justify-content: space-between; gap: 10px; font-size: 13px; background: var(--bg-raised); border: 1px solid var(--line); border-radius: 2px; padding: 8px 12px; }
+  .file-list li .fname { color: var(--ink); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+  .file-list li .fsize { color: var(--ink-soft); flex-shrink: 0; }
+  .file-clear[hidden] { display: none; }
+  .file-clear { display: inline-block; background: none; border: 0; color: var(--red); font-family: var(--font-mono); font-size: 11.5px; text-transform: uppercase; letter-spacing: 0.05em; cursor: pointer; padding: 0; margin: 10px 0 0; text-decoration: underline; }
+
+  .cform .csend { display: flex; align-items: center; gap: 18px; margin-top: 6px; }
+  .cform button[type="submit"] { font-family: var(--font-mono); font-size: 13px; letter-spacing: 0.06em; text-transform: uppercase; padding: 16px 30px; background: var(--red); border: 1px solid var(--red); color: #191016; font-weight: 700; border-radius: 2px; cursor: pointer; transition: background .15s ease, transform .15s ease; }
+  .cform button[type="submit"]:hover { background: var(--red-ink); border-color: var(--red-ink); transform: translateY(-2px); }
+  .cform button[type="submit"]:disabled { opacity: 0.6; cursor: default; transform: none; }
+  .cstatus { font-size: 13px; color: var(--ink-soft); margin: 0; }
+  .cstatus.error { color: var(--red); }
+
+  .cthanks { display: none; text-align: center; padding: 50px 10px; border: 1px solid var(--line-strong); background: var(--bg-raised); }
+  .cthanks.show { display: block; }
+  .cthanks h2 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 30px; margin: 0 0 12px; }
+  .cthanks h2 em { font-style: normal; color: var(--red); }
+  .cthanks p { color: var(--ink-soft); max-width: 42ch; margin: 0 auto; }
+
+  .price-card { position: sticky; top: 24px; border: 1px solid var(--line-strong); background: var(--bg-raised); padding: 26px; }
+  .price-card h3 { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.07em; text-transform: uppercase; color: var(--red); margin: 0 0 18px; }
+  .price-line { display: flex; justify-content: space-between; font-size: 14px; color: var(--ink-soft); padding: 8px 0; border-bottom: 1px solid var(--line); }
+  .price-line span:last-child { color: var(--ink); font-family: var(--font-mono); }
+  .price-total { display: flex; justify-content: space-between; align-items: baseline; margin-top: 16px; padding-top: 16px; border-top: 1px solid var(--line-strong); }
+  .price-total .pt-label { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--ink-soft); }
+  .price-total .pt-value { font-family: var(--font-display); font-weight: 900; font-size: 38px; color: var(--red); }
+  .price-note { font-size: 12.5px; color: var(--ink-soft); line-height: 1.6; margin: 16px 0 0; }
+
+  .copyright { text-align: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-soft); padding: 34px 20px 40px; border-top: 1px solid var(--line); }
+
+  .contact-ribbon { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 30; display: flex; flex-direction: row-reverse; align-items: stretch; }
+  .contact-ribbon .cr-tab { writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; background: var(--red); color: #191016; border: 0; padding: 20px 9px; cursor: pointer; white-space: nowrap; border-radius: 0 8px 8px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.45); }
+  .contact-ribbon .cr-panel { max-width: 0; overflow: hidden; white-space: nowrap; background: var(--paper); color: #1a1620; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 14px 0; transition: max-width .25s ease; border-radius: 8px 0 0 8px; }
+  .contact-ribbon.open .cr-panel { max-width: 320px; }
+  .contact-ribbon .cr-panel a { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.04em; padding: 0 20px; color: #1a1620; text-decoration: none; }
+  .contact-ribbon .cr-panel a:hover { color: var(--red-ink); }
+  @media (hover: hover) { .contact-ribbon:hover .cr-panel { max-width: 320px; } }
+  @media (max-width: 780px) { .contact-ribbon .cr-tab { padding: 14px 7px; font-size: 10.5px; } .contact-ribbon.open .cr-panel { max-width: 250px; } }
+  .to-top { position: absolute; right: 0; top: 100%; margin-top: 10px; width: 34px; height: 34px; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; background: var(--bg-raised); color: var(--red); border: 1px solid var(--red); border-right: 0; border-radius: 8px 0 0 8px; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease, visibility .2s, background .15s ease, color .15s ease; }
+  .to-top.show { opacity: 1; visibility: visible; transform: none; }
+  .to-top:hover, .to-top:focus-visible { background: var(--red); color: #191016; }
+  .to-top svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+</style>
+</head>
+<body>
+
+<div class="topbar">
+  <div class="mark-group">
+    <a class="mark" id="markMain" href="index.html">Toledo <span>Toons</span></a>
+    <span class="mark-sub" id="markSub">A ScampArt Production</span>
+  </div>
+  <a class="back-link" href="index.html">&#8592; Back to Toledo Toons</a>
+</div>
+<script>
+(function(){
+  function matchWidth(){
+    var mark = document.getElementById('markMain');
+    var sub = document.getElementById('markSub');
+    if(!mark || !sub) return;
+    sub.style.transform = 'none';
+    var markWidth = mark.getBoundingClientRect().width;
+    var subWidth = sub.getBoundingClientRect().width;
+    if(subWidth > 0 && markWidth > 0){
+      sub.style.transform = 'scaleX(' + (markWidth / subWidth) + ')';
+    }
+  }
+  matchWidth();
+  if (document.fonts && document.fonts.ready) { document.fonts.ready.then(matchWidth); }
+  window.addEventListener('load', matchWidth);
+  window.addEventListener('resize', matchWidth);
+})();
+</script>
+
+<section class="page-head">
+  <div class="wrap">
+    <span class="kicker"><span class="dot"></span>Digital Caricatures From A Photo</span>
+    <h1>Order Your Own <em>Caricature.</em></h1>
+    <p>No event needed. Send a few photos, pick your options below, and I'll turn you (and your crew, if you've got one) into a caricature. See your price update as you go, then submit your order and photos.</p>
+  </div>
+</section>
+
+<section class="order-layout">
+  <div class="wrap order-grid">
+    <div>
+      <div class="step">
+        <p class="step-num">01 / Face Only, or Face &amp; Body</p>
+        <h3>What Should I Draw?</h3>
+        <div class="option-cards">
+          <label class="option-card">
+            <input type="radio" name="scope" value="face" checked>
+            <span>
+              <svg class="oc-icon" viewBox="0 0 40 40" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                <circle cx="20" cy="20" r="15"/>
+                <circle cx="14" cy="18" r="1.6" fill="currentColor" stroke="none"/>
+                <circle cx="26" cy="18" r="1.6" fill="currentColor" stroke="none"/>
+                <path d="M13 26c2.5 3 11.5 3 14 0" stroke-linecap="round"/>
+              </svg>
+              <span class="oc-title">Face Only</span><span class="oc-sub">Just a fun, exaggerated portrait from the shoulders up.</span>
+            </span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="scope" value="body">
+            <span>
+              <svg class="oc-icon" viewBox="0 0 40 40" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                <circle cx="20" cy="12" r="7"/>
+                <path d="M6 34c0-8 6-13 14-13s14 5 14 13" stroke-linecap="round"/>
+              </svg>
+              <span class="oc-title">Face &amp; Body</span><span class="oc-sub">A full character illustration, doing whatever you dream up.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="step">
+        <p class="step-num">02 / Style</p>
+        <h3>Black &amp; White, or Color?</h3>
+        <div class="option-cards">
+          <label class="option-card">
+            <input type="radio" name="color" value="bw" checked>
+            <span>
+              <svg class="oc-icon" viewBox="0 0 40 40" width="32" height="32" aria-hidden="true" focusable="false">
+                <circle cx="20" cy="20" r="15" fill="none" stroke="currentColor" stroke-width="2"/>
+                <path d="M20 5a15 15 0 0 1 0 30z" fill="currentColor"/>
+              </svg>
+              <span class="oc-title">Black &amp; White</span><span class="oc-sub">Classic pen and ink line work.</span>
+            </span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="color" value="color">
+            <span>
+              <svg class="oc-icon" viewBox="0 0 40 40" width="32" height="32" aria-hidden="true" focusable="false">
+                <circle cx="14" cy="18" r="9" fill="#E1503B" opacity="0.85"/>
+                <circle cx="24" cy="14" r="9" fill="#E8D9B0" opacity="0.85"/>
+                <circle cx="22" cy="26" r="9" fill="#6FBF73" opacity="0.85"/>
+              </svg>
+              <span class="oc-title">Full Color</span><span class="oc-sub">Vivid color, a bolder keepsake.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="step">
+        <p class="step-num">03 / How Many People</p>
+        <h3>People In The Picture</h3>
+        <div class="stepper">
+          <button type="button" id="peopleMinus" aria-label="Decrease">&minus;</button>
+          <input id="peopleCount" type="text" inputmode="numeric" value="1" readonly>
+          <button type="button" id="peoplePlus" aria-label="Increase">+</button>
+        </div>
+        <p class="people-note" id="peopleNote">Everyone after the first person is discounted.</p>
+      </div>
+
+      <div class="step">
+        <p class="step-num">04 / Delivery Speed</p>
+        <h3>Standard, Or Rush?</h3>
+        <div class="option-cards">
+          <label class="option-card">
+            <input type="radio" name="speed" value="standard" checked>
+            <span>
+              <svg class="oc-icon" viewBox="0 0 40 40" width="32" height="32" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true" focusable="false">
+                <circle cx="20" cy="20" r="15"/>
+                <path d="M20 11v9l6 4" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              <span class="oc-title">Standard</span><span class="oc-sub">About 12 business days. No extra charge.</span>
+            </span>
+          </label>
+          <label class="option-card">
+            <input type="radio" name="speed" value="rush">
+            <span>
+              <svg class="oc-icon" viewBox="0 0 40 40" width="32" height="32" aria-hidden="true" focusable="false">
+                <path d="M22 4 8 24h10l-2 12 16-22H22z" fill="currentColor"/>
+              </svg>
+              <span class="oc-title">Rush (+$50)</span><span class="oc-sub">About 72 business hours.</span>
+            </span>
+          </label>
+        </div>
+      </div>
+
+      <div class="step body-desc" id="bodyDesc">
+        <p class="step-num">05 / The Scene</p>
+        <h3>What Should Be Happening?</h3>
+        <label for="cScene">Describe the theme, setting, or what everyone should be doing <i>*</i></label>
+        <textarea id="cScene" name="scene" placeholder="e.g. our whole poker night crew around the table, my husband on his golf cart, our family at the lake this summer..."></textarea>
+      </div>
+
+      <form class="cform" method="POST" action="https://formspree.io/f/mqpabwyj" id="oForm">
+        <p class="hp"><label>Leave this empty <input name="_gotcha" tabindex="-1" autocomplete="off"></label></p>
+        <input type="hidden" name="_subject" value="Toledo Toons digital caricature order">
+        <input type="hidden" name="source" value="toledotoons.com/order">
+        <input type="hidden" name="scope_selected" id="fScope" value="Face Only">
+        <input type="hidden" name="color_selected" id="fColor" value="Black &amp; White">
+        <input type="hidden" name="people_selected" id="fPeople" value="1">
+        <input type="hidden" name="speed_selected" id="fSpeed" value="Standard (about 12 business days)">
+        <input type="hidden" name="quoted_price" id="fPrice" value="">
+
+        <div class="row2">
+          <div>
+            <label class="flabel" for="cName">Your name <i>*</i></label>
+            <input id="cName" name="name" type="text" required autocomplete="name">
+          </div>
+          <div>
+            <label class="flabel" for="cEmail">Email <i>*</i></label>
+            <input id="cEmail" name="email" type="email" required autocomplete="email">
+          </div>
+        </div>
+
+        <div>
+          <label class="flabel" for="cPhotos">Upload photos <i>*</i></label>
+          <div class="upload-drop" id="uploadDrop">
+            <p class="ud-main">Drag photos here or <span class="ud-link">browse files</span></p>
+            <p class="ud-sub">One clear, well-lit photo per person &middot; up to 5 photos</p>
+            <input id="cPhotos" name="photos" type="file" accept="image/*" multiple required>
+          </div>
+          <ul class="file-list" id="fileList"></ul>
+          <button type="button" class="file-clear" id="fileClear" hidden>Clear selected photos</button>
+          <p class="file-note">If the form won't accept your files, submit the order and email photos to <a href="mailto:scampart@gmail.com" style="color:var(--ink);">scampart@gmail.com</a>.</p>
+        </div>
+
+        <div class="csend">
+          <button type="submit" id="oSend">Submit Order</button>
+          <p class="cstatus" id="oStatus" role="status"></p>
+        </div>
+      </form>
+
+      <div class="cthanks" id="oThanks">
+        <h2>Order <em>Received.</em></h2>
+        <p>Thanks! I'll review your photos and details and follow up within a day or two to confirm everything before I start drawing.</p>
+      </div>
+    </div>
+
+    <div class="price-card">
+      <h3>Your Price</h3>
+      <div class="price-line"><span>First person</span><span id="lineFirst">&mdash;</span></div>
+      <div class="price-line"><span>Each additional person</span><span id="lineAdditional">&mdash;</span></div>
+      <div class="price-line"><span>Rush service</span><span id="lineRush">$0</span></div>
+      <div class="price-total">
+        <span class="pt-label">Total</span>
+        <span class="pt-value" id="lineTotal">$0</span>
+      </div>
+      <p class="price-note">Prices shown are an estimate based on your selections. I'll confirm final pricing with you before starting any artwork. For groups larger than 8, contact me directly for a custom quote.</p>
+    </div>
+  </div>
+</section>
+
+<p class="copyright">&copy; Toledo Toons. Live caricatures by Shawn Camp / Scamp Art</p>
+
+<script>
+(function () {
+  "use strict";
+  var PRICES = {
+    "face-bw":    { first: 30, additional: 20, label: "Face Only, Black & White" },
+    "face-color": { first: 50, additional: 35, label: "Face Only, Full Color" },
+    "body-bw":    { first: 40, additional: 28, label: "Face & Body, Black & White" },
+    "body-color": { first: 70, additional: 45, label: "Face & Body, Full Color" }
+  };
+  var MAX_PEOPLE = 8;
+
+  var RUSH_FEE = 50;
+
+  var scopeInputs = document.querySelectorAll('input[name="scope"]');
+  var colorInputs = document.querySelectorAll('input[name="color"]');
+  var speedInputs = document.querySelectorAll('input[name="speed"]');
+  var peopleInput = document.getElementById('peopleCount');
+  var peopleMinus = document.getElementById('peopleMinus');
+  var peoplePlus = document.getElementById('peoplePlus');
+  var peopleNote = document.getElementById('peopleNote');
+  var bodyDesc = document.getElementById('bodyDesc');
+  var sceneField = document.getElementById('cScene');
+
+  var lineFirst = document.getElementById('lineFirst');
+  var lineAdditional = document.getElementById('lineAdditional');
+  var lineRush = document.getElementById('lineRush');
+  var lineTotal = document.getElementById('lineTotal');
+
+  var fScope = document.getElementById('fScope');
+  var fColor = document.getElementById('fColor');
+  var fPeople = document.getElementById('fPeople');
+  var fSpeed = document.getElementById('fSpeed');
+  var fPrice = document.getElementById('fPrice');
+
+  function getScope() { return document.querySelector('input[name="scope"]:checked').value; }
+  function getColor() { return document.querySelector('input[name="color"]:checked').value; }
+  function getSpeed() { return document.querySelector('input[name="speed"]:checked').value; }
+  function getPeople() { return parseInt(peopleInput.value, 10) || 1; }
+
+  function update() {
+    var scope = getScope();
+    var color = getColor();
+    var people = getPeople();
+    var rush = getSpeed() === 'rush';
+    var key = scope + '-' + color;
+    var tier = PRICES[key];
+
+    bodyDesc.classList.toggle('show', scope === 'body');
+    sceneField.required = (scope === 'body');
+
+    lineFirst.textContent = '$' + tier.first;
+    lineAdditional.textContent = '$' + tier.additional;
+    lineRush.textContent = rush ? '+$' + RUSH_FEE : '$0';
+    var total = tier.first + tier.additional * (people - 1) + (rush ? RUSH_FEE : 0);
+    lineTotal.textContent = '$' + total;
+
+    peopleNote.classList.toggle('warn', people >= MAX_PEOPLE);
+    peopleNote.textContent = people >= MAX_PEOPLE
+      ? 'For groups larger than ' + MAX_PEOPLE + ', contact me directly for a custom quote.'
+      : 'Everyone after the first person is discounted.';
+
+    fScope.value = scope === 'body' ? 'Face & Body' : 'Face Only';
+    fColor.value = color === 'color' ? 'Full Color' : 'Black & White';
+    fPeople.value = String(people);
+    fSpeed.value = rush ? 'Rush (about 72 business hours)' : 'Standard (about 12 business days)';
+    fPrice.value = '$' + total + ' (' + tier.label + ', ' + people + ' ' + (people === 1 ? 'person' : 'people') + (rush ? ', rush' : '') + ')';
+  }
+
+  scopeInputs.forEach(function (el) { el.addEventListener('change', update); });
+  colorInputs.forEach(function (el) { el.addEventListener('change', update); });
+  speedInputs.forEach(function (el) { el.addEventListener('change', update); });
+
+  peopleMinus.addEventListener('click', function () {
+    var v = Math.max(1, getPeople() - 1);
+    peopleInput.value = String(v);
+    update();
+  });
+  peoplePlus.addEventListener('click', function () {
+    var v = Math.min(MAX_PEOPLE, getPeople() + 1);
+    peopleInput.value = String(v);
+    update();
+  });
+
+  update();
+})();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  var input = document.getElementById("cPhotos");
+  var drop = document.getElementById("uploadDrop");
+  var list = document.getElementById("fileList");
+  var clearBtn = document.getElementById("fileClear");
+  if (!input || !drop) return;
+
+  function renderList() {
+    list.innerHTML = "";
+    var files = input.files;
+    if (files && files.length) {
+      for (var i = 0; i < files.length; i++) {
+        var f = files[i];
+        var kb = f.size / 1024;
+        var sizeStr = kb > 1024 ? (kb / 1024).toFixed(1) + " MB" : Math.round(kb) + " KB";
+        var li = document.createElement("li");
+        var nameSpan = document.createElement("span");
+        nameSpan.className = "fname";
+        nameSpan.textContent = f.name;
+        var sizeSpan = document.createElement("span");
+        sizeSpan.className = "fsize";
+        sizeSpan.textContent = sizeStr;
+        li.appendChild(nameSpan);
+        li.appendChild(sizeSpan);
+        list.appendChild(li);
+      }
+      clearBtn.hidden = false;
+    } else {
+      clearBtn.hidden = true;
+    }
+  }
+
+  input.addEventListener("change", renderList);
+
+  ["dragenter", "dragover"].forEach(function (evt) {
+    drop.addEventListener(evt, function (e) { e.preventDefault(); drop.classList.add("dragover"); });
+  });
+  ["dragleave", "drop"].forEach(function (evt) {
+    drop.addEventListener(evt, function (e) { e.preventDefault(); drop.classList.remove("dragover"); });
+  });
+  drop.addEventListener("drop", function () { setTimeout(renderList, 0); });
+
+  clearBtn.addEventListener("click", function () {
+    input.value = "";
+    renderList();
+  });
+})();
+</script>
+
+<script>
+(function () {
+  "use strict";
+  var form = document.getElementById("oForm");
+  var status = document.getElementById("oStatus");
+  var sendBtn = document.getElementById("oSend");
+  var thanks = document.getElementById("oThanks");
+  if (!form) return;
+  form.addEventListener("submit", function (e) {
+    e.preventDefault();
+    status.textContent = "Sending...";
+    status.classList.remove("error");
+    sendBtn.disabled = true;
+    fetch(form.action, {
+      method: "POST",
+      body: new FormData(form),
+      headers: { "Accept": "application/json" }
+    }).then(function (r) {
+      if (!r.ok) throw new Error("bad");
+      form.hidden = true;
+      status.textContent = "";
+      thanks.classList.add("show");
+      thanks.scrollIntoView({ behavior: "smooth", block: "center" });
+    }).catch(function () {
+      status.textContent = "Something went wrong. Please email scampart@gmail.com directly with your details and photos.";
+      status.classList.add("error");
+      sendBtn.disabled = false;
+    });
+  });
+})();
+</script>
+
+<div class="contact-ribbon" id="contactRibbon">
+  <button type="button" class="cr-tab" id="crTab" aria-expanded="false" aria-controls="crPanel">Get A Quote</button>
+  <div class="cr-panel" id="crPanel">
+    <a href="mailto:scampart@gmail.com">scampart@gmail.com</a>
+    <a href="contact.html">Book A Live Event &#8594;</a>
+  </div>
+  <button type="button" class="to-top" id="toTop" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg></button>
+</div>
+
+<script>
+(function () {
+  var r = document.getElementById("contactRibbon"), t = document.getElementById("crTab");
+  if (!r || !t) return;
+  t.addEventListener("click", function (e) {
+    e.stopPropagation();
+    var o = r.classList.toggle("open");
+    t.setAttribute("aria-expanded", String(o));
+  });
+  document.addEventListener("click", function (e) {
+    if (!r.contains(e.target)) { r.classList.remove("open"); t.setAttribute("aria-expanded", "false"); }
+  });
+})();
+(function () {
+  var btn = document.getElementById("toTop"); if (!btn) return;
+  function update() { btn.classList.toggle("show", (window.pageYOffset || document.documentElement.scrollTop) > 500); }
+  window.addEventListener("scroll", update, { passive: true }); update();
+  btn.addEventListener("click", function () {
+    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top: 0, behavior: still ? "auto" : "smooth" });
+  });
+})();
+</script>
+
+</body>
+</html>

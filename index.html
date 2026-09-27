@@ -75,6 +75,17 @@
   .portal-card.is-event .pc-kicker,
   .portal-card.is-order .pc-kicker { color: var(--red); }
 
+  .portal-card.is-order {
+    align-items: stretch; flex-direction: column; justify-content: center; background: var(--bg-raised);
+    padding: 28px 30px;
+  }
+  .pc-illustration-wrap { flex: 1; display: flex; align-items: center; justify-content: center; min-height: 0; padding: 10px 0 4px; }
+  .pc-illustration { max-width: 100%; max-height: 240px; width: auto; height: auto; object-fit: contain; transition: transform .4s ease; }
+  .portal-card.is-order:hover .pc-illustration { transform: scale(1.03); }
+  .portal-card.is-order .pc-content { position: static; padding: 0; text-align: center; }
+  .portal-card.is-order .pc-sub { margin-left: auto; margin-right: auto; }
+  .portal-card.is-order .pc-cta { margin-top: 4px; }
+
   .portal-foot {
     text-align: center; padding: 22px 20px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-soft);
   }
@@ -94,6 +105,17 @@
 </div>
 
 <div class="portal-grid">
+  <a class="portal-card is-order" href="order.html">
+    <div class="pc-illustration-wrap">
+      <img class="pc-illustration" src="images/order-steps.png" alt="Step 1: upload a photo. Step 2: I draw it. Step 3: receive it by email." loading="lazy">
+    </div>
+    <div class="pc-content">
+      <p class="pc-kicker">No Event Needed</p>
+      <h2>Order A Caricature<br>Online</h2>
+      <p class="pc-sub">Send a photo, pick your options, and get a custom digital caricature by mail. Face only or full body, black &amp; white or color.</p>
+      <span class="pc-cta">Start Your Order &#8594;</span>
+    </div>
+  </a>
   <a class="portal-card is-event" href="live-events.html">
     <img class="pc-img" src="images/hero-artist-drawing.webp" alt="" loading="lazy">
     <div class="pc-overlay"></div>
@@ -102,16 +124,6 @@
       <h2>Live Event<br>Caricatures</h2>
       <p class="pc-sub">Weddings, corporate parties, birthdays and fundraisers &mdash; drawn live, in black &amp; white, full color or digital.</p>
       <span class="pc-cta">Explore Live Events &#8594;</span>
-    </div>
-  </a>
-  <a class="portal-card is-order" href="order.html">
-    <img class="pc-img" src="images/digital-setup.webp" alt="" loading="lazy">
-    <div class="pc-overlay"></div>
-    <div class="pc-content">
-      <p class="pc-kicker">No Event Needed</p>
-      <h2>Order A Caricature<br>Online</h2>
-      <p class="pc-sub">Send a photo, pick your options, and get a custom digital caricature by mail. Face only or full body, black &amp; white or color.</p>
-      <span class="pc-cta">Start Your Order &#8594;</span>
     </div>
   </a>
 </div>

@@ -33,10 +33,9 @@
 
   .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 40px; border-bottom: 1px solid var(--line); }
   @media (max-width: 700px) { .topbar { padding: 16px 20px; } }
-  .mark-group { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
-  .mark { font-family: var(--font-display); font-weight: 900; font-size: 20px; letter-spacing: 0.03em; text-decoration: none; color: var(--ink); }
-  .mark span { color: var(--red); text-transform: uppercase; font-weight: 900; }
-  .mark-sub { display: inline-block; white-space: nowrap; transform-origin: left top; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: normal; text-transform: uppercase; color: var(--ink-soft); }
+  .mark-group { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; text-decoration: none; }
+  .mark-logo { display: block; height: clamp(38px, 6vw, 48px); width: auto; }
+  .mark-sub { display: inline-block; white-space: nowrap; transform-origin: left top; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
   .back-link { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 3px; }
   .back-link:hover { color: var(--red); border-color: var(--red); }
 
@@ -150,10 +149,10 @@
 <body>
 
 <div class="topbar">
-  <div class="mark-group">
-    <a class="mark" id="markMain" href="index.html">Toledo <span>Toons</span></a>
+  <a class="mark-group" id="markGroup" href="index.html">
+    <img class="mark-logo" id="markMain" src="images/toledo-toons-logo.webp" alt="Toledo Toons">
     <span class="mark-sub" id="markSub">A ScampArt Production</span>
-  </div>
+  </a>
   <a class="back-link" href="index.html">&#8592; Back to Toledo Toons</a>
 </div>
 <script>
@@ -171,6 +170,10 @@
   }
   matchWidth();
   if (document.fonts && document.fonts.ready) { document.fonts.ready.then(matchWidth); }
+  var markImg = document.getElementById('markMain');
+  if (markImg) {
+    if (markImg.complete) { matchWidth(); } else { markImg.addEventListener('load', matchWidth); }
+  }
   window.addEventListener('load', matchWidth);
   window.addEventListener('resize', matchWidth);
 })();

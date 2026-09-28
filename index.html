@@ -32,12 +32,13 @@
     min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column;
   }
 
-  .site-header { display: flex; padding: 30px 34px 0; }
+  .top-band { display: flex; align-items: flex-start; flex-wrap: wrap; gap: 10px 24px; padding: 30px 34px 0; }
+  .site-header { display: flex; padding: 0; }
   .mark-group { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 6px; text-decoration: none; }
   .mark-logo { display: block; height: clamp(44px, 7vw, 64px); width: auto; }
   .mark-sub { display: inline-block; white-space: nowrap; transform-origin: left top; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin-top: 2px; }
 
-  .hero-tagline { text-align: center; padding: 18px 20px 30px; }
+  .hero-tagline { flex: 1; min-width: 260px; text-align: center; padding: 0 20px 30px; }
   .hero-tagline h1 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(32px, 6.5vw, 60px); line-height: 0.98; letter-spacing: 0.01em; margin: 0 0 12px; }
   .hero-tagline h1 .accent { color: var(--red); }
   .portal-question { margin: 0; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: clamp(18px, 2.6vw, 26px); letter-spacing: 0.02em; color: var(--ink-soft); }
@@ -82,16 +83,18 @@
 </head>
 <body>
 
-<header class="site-header">
-  <a class="mark-group" id="markGroup" href="index.html">
-    <img class="mark-logo" id="markMain" src="images/toledo-toons-logo.webp" alt="Toledo Toons">
-    <span class="mark-sub" id="markSub">A ScampArt Production</span>
-  </a>
-</header>
+<div class="top-band">
+  <header class="site-header">
+    <a class="mark-group" id="markGroup" href="index.html">
+      <img class="mark-logo" id="markMain" src="images/toledo-toons-logo.webp" alt="Toledo Toons">
+      <span class="mark-sub" id="markSub">A ScampArt Production</span>
+    </a>
+  </header>
 
-<div class="hero-tagline">
-  <h1>Get Drawn Into The <span class="accent">Fun</span></h1>
-  <p class="portal-question">How Do You Want Your Caricature?</p>
+  <div class="hero-tagline">
+    <h1>Get Drawn Into The <span class="accent">Fun</span></h1>
+    <p class="portal-question">How Do You Want Your Caricature?</p>
+  </div>
 </div>
 
 <div class="portal-grid">

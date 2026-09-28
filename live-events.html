@@ -33,13 +33,18 @@
 
   .preview-flag { background: var(--red); color: #191016; text-align: center; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 16px; }
 
-  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 40px; border-bottom: 1px solid var(--line); }
+  .topbar { display: flex; align-items: center; justify-content: space-between; gap: 12px 24px; padding: 22px 40px; border-bottom: 1px solid var(--line); flex-wrap: wrap; }
   @media (max-width: 700px) { .topbar { padding: 16px 20px; } }
   .mark-group { display: flex; flex-direction: column; align-items: flex-start; gap: 6px; text-decoration: none; }
   .mark-logo { display: block; height: clamp(38px, 6vw, 48px); width: auto; }
   .mark-sub { display: inline-block; white-space: nowrap; transform-origin: left top; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
-  .back-link { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 3px; }
+  .topbar-tagline { flex: 1; min-width: 200px; order: 2; text-align: center; margin: 0; font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(15px, 2.3vw, 22px); line-height: 1; letter-spacing: 0.02em; }
+  .topbar-tagline em { font-style: normal; color: var(--red); }
+  .back-link { order: 3; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 3px; }
   .back-link:hover { color: var(--red); border-color: var(--red); }
+  @media (max-width: 700px) { .topbar-tagline { order: 3; width: 100%; } .back-link { order: 2; } }
+
+  .sr-only { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0,0,0,0); white-space: nowrap; border: 0; }
 
   .hero { padding: 64px 0 0; text-align: center; }
   .hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; text-align: left; padding-bottom: 40px; }
@@ -164,6 +169,7 @@
     <img class="mark-logo" id="markMain" src="images/toledo-toons-logo.webp" alt="Toledo Toons">
     <span class="mark-sub" id="markSub">A ScampArt Production</span>
   </a>
+  <p class="topbar-tagline">Get Drawn <em>Into The Fun.</em></p>
   <a class="back-link" href="https://scampart.com/">See My Professional Work &#8594;</a>
 </div>
 <script>
@@ -194,7 +200,7 @@
   <div class="wrap">
     <div class="hero-copy">
       <span class="kicker"><span class="dot"></span>Booking Now for 2026 &amp; 2027</span>
-      <h1>Get Drawn<br><em>Into The Fun.</em></h1>
+      <h1 class="sr-only">Live Event Caricatures</h1>
       <p>Weddings, corporate parties, birthdays and fundraisers get live caricatures, drawn on the spot in black and white, full color or digital. Thirty years of experience turning your guests into the best souvenir of the night.</p>
       <div class="hero-actions">
         <a class="btn btn-solid" href="contact.html">Get a Quote</a>

@@ -38,9 +38,13 @@
   .mark-group { display: flex; flex-direction: column; align-items: center; gap: 6px; text-decoration: none; }
   .mark-logo { display: block; height: clamp(38px, 6vw, 48px); width: auto; }
   .mark-sub { display: inline-block; white-space: nowrap; transform-origin: center top; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); }
-  .back-link { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 3px; }
+  .topbar-right { position: absolute; right: 40px; top: 50%; transform: translateY(-50%); display: flex; align-items: center; gap: 18px; }
+  .back-link { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 3px; }
   .back-link:hover { color: var(--red); border-color: var(--red); }
-  @media (max-width: 700px) { .back-link { position: static; transform: none; } }
+  .home-icon { display: flex; align-items: center; justify-content: center; width: 34px; height: 34px; border: 1px solid var(--line-strong); border-radius: 8px; color: var(--ink-soft); background: transparent; transition: background .15s ease, color .15s ease, border-color .15s ease; flex-shrink: 0; }
+  .home-icon:hover, .home-icon:focus-visible { background: var(--red); color: #191016; border-color: var(--red); }
+  .home-icon svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  @media (max-width: 700px) { .topbar-right { position: static; transform: none; } }
 
   .hero { padding: 64px 0 0; text-align: center; }
   .hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; text-align: left; padding-bottom: 40px; }
@@ -165,7 +169,12 @@
     <img class="mark-logo" id="markMain" src="images/toledo-toons-logo.webp" alt="Toledo Toons">
     <span class="mark-sub" id="markSub">A ScampArt Production</span>
   </a>
-  <a class="back-link" href="https://scampart.com/">See My Professional Work &#8594;</a>
+  <div class="topbar-right">
+    <a class="back-link" href="https://scampart.com/">See My Professional Work &#8594;</a>
+    <a class="home-icon" href="index.html" aria-label="Toledo Toons Home">
+      <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 11.5 12 4l9 7.5"/><path d="M5.5 10v9a1 1 0 0 0 1 1H10v-6h4v6h3.5a1 1 0 0 0 1-1v-9"/></svg>
+    </a>
+  </div>
 </div>
 <script>
 (function(){

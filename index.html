@@ -43,6 +43,10 @@
   .hero-tagline h1 .accent { color: var(--red); }
   .portal-question { margin: 0; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: clamp(18px, 2.6vw, 26px); letter-spacing: 0.02em; color: var(--ink-soft); }
 
+  .pro-work-link { flex-shrink: 0; align-self: flex-start; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 2px; white-space: nowrap; }
+  .pro-work-link:hover { color: var(--red); border-color: var(--red); }
+  @media (max-width: 780px) { .pro-work-link { align-self: flex-start; } }
+
   .portal-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--line); }
   @media (max-width: 780px) { .portal-grid { grid-template-columns: 1fr; } }
 
@@ -95,6 +99,8 @@
     <h1>Get Drawn Into The <span class="accent">Fun</span></h1>
     <p class="portal-question">How Do You Want Your Caricature?</p>
   </div>
+
+  <a class="pro-work-link" href="https://scampart.com/">See My Professional Work &#8594;</a>
 </div>
 
 <div class="portal-grid">

@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Toledo Toons | Live Caricatures by Shawn Camp</title>
-<meta name="description" content="Live caricature drawing for weddings, parties and corporate events. Black and white, full color or digital, serving Toledo, Ohio and beyond.">
+<title>Toledo Toons | Live Caricature Events &amp; Custom Digital Caricatures</title>
+<meta name="description" content="Toledo Toons by Shawn Camp / Scamp Art. Book live caricature entertainment for your event, or order a custom digital caricature online from a photo, no event needed.">
 <link rel="canonical" href="https://toledotoons.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -27,139 +27,153 @@
   }
   * { box-sizing: border-box; }
   html, body { margin: 0; padding: 0; }
-  body { background: var(--bg); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased; }
-  .wrap { max-width: 1100px; margin: 0 auto; padding: 0 40px; }
-  @media (max-width: 700px) { .wrap { padding: 0 20px; } }
+  body {
+    background: var(--bg); color: var(--ink); font-family: var(--font-body); -webkit-font-smoothing: antialiased;
+    min-height: 100vh; min-height: 100dvh; display: flex; flex-direction: column;
+  }
 
-  .preview-flag { background: var(--red); color: #191016; text-align: center; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 10px 16px; }
-
-  .topbar { display: flex; align-items: center; justify-content: space-between; padding: 22px 40px; border-bottom: 1px solid var(--line); }
-  @media (max-width: 700px) { .topbar { padding: 16px 20px; } }
-  .mark-group { display: flex; flex-direction: column; align-items: flex-start; gap: 2px; }
-  .mark { font-family: var(--font-display); font-weight: 900; font-size: 20px; letter-spacing: 0.03em; text-decoration: none; color: var(--ink); }
+  .site-header { display: flex; padding: 30px 34px 0; }
+  .mark-group { display: inline-flex; flex-direction: column; align-items: flex-start; gap: 4px; text-decoration: none; }
+  .mark { font-family: var(--font-display); font-weight: 900; font-size: clamp(26px, 4.5vw, 38px); letter-spacing: 0.03em; text-decoration: none; color: var(--ink); line-height: 1; }
   .mark span { color: var(--red); text-transform: uppercase; font-weight: 900; }
-  .mark-sub { display: inline-block; white-space: nowrap; transform-origin: left top; font-family: var(--font-mono); font-size: 10.5px; letter-spacing: normal; text-transform: uppercase; color: var(--ink-soft); }
-  .back-link { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 3px; }
-  .back-link:hover { color: var(--red); border-color: var(--red); }
+  .mark-sub { display: inline-block; white-space: nowrap; transform-origin: left top; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink-soft); margin-top: 2px; }
 
-  .hero { padding: 64px 0 0; text-align: center; }
-  .hero .wrap { display: grid; grid-template-columns: 1.1fr 0.9fr; gap: 40px; align-items: center; text-align: left; padding-bottom: 40px; }
-  .hero-copy { text-align: left; }
-  .hero-art { position: relative; display: flex; justify-content: center; align-items: flex-end; height: 100%; }
-  .hero-art img { position: relative; z-index: 1; max-width: 360px; width: 100%; height: auto; display: block; filter: drop-shadow(0 24px 34px rgba(0,0,0,0.5)); }
-  .art-blob { position: absolute; left: 50%; top: 50%; width: 118%; max-width: 620px; aspect-ratio: 1; transform: translate(-50%, -50%); overflow: visible; z-index: 0; pointer-events: none; }
-  .hero-art .hero-logo { position: absolute; left: -6%; top: -7%; width: clamp(96px, 11vw, 150px); max-width: none; height: auto; transform: rotate(-10deg); z-index: 0; pointer-events: none; filter: drop-shadow(0 6px 12px rgba(0,0,0,0.45)); }
-  @media (max-width: 860px) { .hero .wrap { grid-template-columns: 1fr; text-align: center; } .hero-copy { text-align: center; } .hero-art { order: -1; max-width: 260px; margin: 0 auto; } .hero-actions { justify-content: center; } }
+  .hero-tagline { text-align: center; padding: 18px 20px 30px; }
+  .hero-tagline h1 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(32px, 6.5vw, 60px); line-height: 0.98; letter-spacing: 0.01em; margin: 0 0 12px; }
+  .hero-tagline h1 .accent { color: var(--red); }
+  .portal-question { margin: 0; font-family: var(--font-display); font-weight: 700; text-transform: uppercase; font-size: clamp(18px, 2.6vw, 26px); letter-spacing: 0.02em; color: var(--ink-soft); }
 
-  .showcase .wrap { display: grid; grid-template-columns: 0.9fr 1.1fr; gap: 48px; align-items: center; }
-  .showcase-art { position: relative; }
-  .showcase-art img { position: relative; z-index: 1; width: 100%; height: auto; display: block; filter: drop-shadow(0 20px 30px rgba(0,0,0,0.45)); }
-  .showcase-copy p.lede { margin: 0 0 20px; }
-  .showcase-copy ul { list-style: none; margin: 0; padding: 0; font-size: 15px; color: var(--ink-soft); line-height: 1.9; }
-  .showcase-copy li::before { content: "\2014  "; color: var(--red); }
-  @media (max-width: 860px) { .showcase .wrap { grid-template-columns: 1fr; text-align: center; } .showcase-art { order: -1; max-width: 340px; margin: 0 auto; } .showcase-copy ul { text-align: left; max-width: 44ch; margin: 0 auto; } }
-  .kicker { display: inline-flex; align-items: center; gap: 8px; font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--ink-soft); border: 1px solid var(--line-strong); border-radius: 999px; padding: 7px 16px; margin-bottom: 22px; }
-  .kicker .dot { width: 7px; height: 7px; border-radius: 50%; background: #6FBF73; box-shadow: 0 0 0 3px rgba(111,191,115,0.18); }
-  .hero h1 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(34px, 5.4vw, 58px); line-height: 0.96; margin: 0 0 20px; }
-  .hero h1 em { font-style: normal; color: var(--red); }
-  .hero p { max-width: 50ch; margin: 0 0 30px; font-size: 16.5px; line-height: 1.6; color: var(--ink-soft); }
-  .hero-actions { display: flex; justify-content: flex-start; gap: 14px; flex-wrap: wrap; }
-  .btn { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.05em; text-transform: uppercase; padding: 15px 26px; display: inline-flex; align-items: center; gap: 8px; border: 1px solid var(--line-strong); border-radius: 2px; text-decoration: none; color: var(--ink); transition: transform .15s ease, background .15s ease, border-color .15s ease; }
-  .btn-solid { background: var(--red); border-color: var(--red); color: #191016; font-weight: 600; }
-  .btn-solid:hover { background: var(--red-ink); border-color: var(--red-ink); transform: translateY(-2px); }
-  .btn-outline:hover { border-color: var(--ink); transform: translateY(-2px); }
+  .portal-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; gap: 2px; background: var(--line); }
+  @media (max-width: 780px) { .portal-grid { grid-template-columns: 1fr; } }
 
-  .gallery { margin: 8px 0 0; line-height: 0; background: var(--bg); }
-  .gallery img { width: 100%; height: auto; display: block; opacity: 0.6; }
+  .portal-card {
+    position: relative; display: flex; flex-direction: column; align-items: stretch; justify-content: flex-start;
+    min-height: 560px; background: var(--bg-raised); text-decoration: none; color: var(--ink);
+    overflow: hidden; padding: 30px 34px 36px;
+  }
+  @media (max-width: 780px) { .portal-card { min-height: 480px; } }
 
-  .section { padding: 70px 0; border-top: 1px solid var(--line); }
-  .section-num { font-family: var(--font-mono); font-size: 12px; color: var(--red); letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 10px; }
-  .section h2 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(28px, 4vw, 42px); line-height: 0.96; margin: 0 0 16px; }
-  .section h2 em { font-style: normal; color: var(--red); }
-  .section > .wrap > p.lede { max-width: 62ch; font-size: 16px; line-height: 1.65; color: var(--ink-soft); margin: 0 0 40px; }
+  .pc-illustration-wrap { position: relative; flex: 1; display: flex; align-items: center; justify-content: center; min-height: 0; }
+  .art-blob { position: absolute; left: 50%; top: 46%; width: 135%; max-width: 560px; aspect-ratio: 1; transform: translate(-50%, -50%); overflow: visible; z-index: 0; pointer-events: none; }
+  .pc-illustration {
+    position: relative; z-index: 1; max-width: 100%; max-height: 380px; width: auto; height: auto; object-fit: contain;
+    filter: drop-shadow(0 20px 28px rgba(0,0,0,0.5)); transition: transform .4s ease;
+  }
+  .portal-card:hover .pc-illustration { transform: scale(1.03); }
 
-  #pricing.section { background: var(--paper); color: #221C14; border-top-color: rgba(34,28,20,0.15); }
-  #pricing .section-num { color: var(--red-ink); }
-  #pricing .lede { color: #5B4C3B; }
-  #pricing .rate-card { background: #FFFCF5; border-color: rgba(34,28,20,0.18); }
-  #pricing .rate-card.featured { border-color: var(--red); }
-  #pricing .rate-card h3, #pricing .rate-card .tag { color: #221C14; }
-  #pricing .rate-card .tag { color: var(--red-ink); }
-  #pricing .rate-card ul { color: #5B4C3B; }
-  #pricing .fact { border-top-color: rgba(34,28,20,0.22); }
-  #pricing .fact .lbl { color: #5B4C3B; }
+  .pc-content { position: relative; z-index: 2; text-align: center; padding-top: 22px; background: var(--bg-raised); }
+  .pc-kicker { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--red); margin: 0 0 10px; }
+  .pc-content h2 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(28px, 4vw, 40px); line-height: 0.98; margin: 0 0 14px; }
+  .pc-sub { max-width: 46ch; margin: 0 auto 20px; font-size: 15px; line-height: 1.6; color: var(--ink-soft); }
+  .pc-cta {
+    display: inline-flex; align-items: center; gap: 10px; font-family: var(--font-mono); font-size: 13.5px; font-weight: 700;
+    letter-spacing: 0.07em; text-transform: uppercase; color: #191016; background: var(--red); border: 1px solid var(--red);
+    border-radius: 2px; padding: 16px 28px; box-shadow: 0 10px 24px rgba(225,80,59,0.25);
+    transition: background .15s ease, border-color .15s ease, transform .15s ease, box-shadow .15s ease;
+  }
+  .portal-card:hover .pc-cta { background: var(--red-ink); border-color: var(--red-ink); transform: translateY(-2px); box-shadow: 0 12px 28px rgba(225,80,59,0.35); }
 
-  .rate-cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-  @media (max-width: 980px) { .rate-cards { grid-template-columns: 1fr 1fr; } }
-  @media (max-width: 700px) { .rate-cards { grid-template-columns: 1fr; } }
-  .rate-card { border: 1px solid var(--line-strong); padding: 30px 28px; background: var(--bg-raised); }
-  .rate-card.featured { border-color: var(--red); }
-  .rate-card .tag { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--red); margin: 0 0 6px; }
-  .rate-card h3 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: 26px; margin: 0 0 4px; }
-  .rate-card .price { font-family: var(--font-display); font-weight: 900; font-size: 42px; color: var(--red); margin: 6px 0 2px; }
-  .rate-card .price span { font-family: var(--font-mono); font-weight: 500; font-size: 13px; color: var(--ink-soft); text-transform: uppercase; margin-left: 6px; }
-  .rate-card ul { list-style: none; margin: 18px 0 0; padding: 0; font-size: 14.5px; color: var(--ink-soft); line-height: 1.9; }
-  .rate-card li::before { content: "\2014  "; color: var(--red); }
-
-  .facts { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; margin-top: 44px; }
-  @media (max-width: 900px) { .facts { grid-template-columns: repeat(2, 1fr); } }
-  .fact { border-top: 1px solid var(--line-strong); padding-top: 14px; }
-  .fact .num { font-family: var(--font-display); font-weight: 900; font-size: 30px; color: var(--red); line-height: 1; }
-  .fact .lbl { font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.05em; text-transform: uppercase; color: var(--ink-soft); margin-top: 6px; }
-
-  .policy-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 30px; }
-  @media (max-width: 860px) { .policy-grid { grid-template-columns: 1fr; } }
-  .policy h3 { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.06em; text-transform: uppercase; color: var(--red); margin: 0 0 10px; }
-  .policy p { font-size: 15px; line-height: 1.65; color: var(--ink-soft); margin: 0; }
-
-  .filter-chips { display: flex; gap: 10px; flex-wrap: wrap; margin: 0 0 34px; }
-  .filter-chip { font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.06em; text-transform: uppercase; padding: 9px 18px; border: 1px solid var(--line-strong); border-radius: 999px; background: transparent; color: var(--ink-soft); cursor: pointer; transition: border-color .15s ease, color .15s ease, background .15s ease; }
-  .filter-chip:hover { border-color: var(--ink); color: var(--ink); }
-  .filter-chip.active { background: var(--red); border-color: var(--red); color: #191016; font-weight: 600; }
-  .work-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 14px; }
-  @media (max-width: 900px) { .work-grid { grid-template-columns: repeat(3, 1fr); } }
-  @media (max-width: 620px) { .work-grid { grid-template-columns: repeat(2, 1fr); gap: 10px; } }
-  .work-item { position: relative; overflow: hidden; background: var(--bg-raised); aspect-ratio: 1; }
-  .work-item img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform .35s ease; }
-  .work-item:hover img { transform: scale(1.06); }
-  .work-item .badge { position: absolute; left: 8px; bottom: 8px; font-family: var(--font-mono); font-size: 10px; letter-spacing: 0.07em; text-transform: uppercase; color: #fff; background: rgba(21,19,25,0.72); padding: 5px 10px; border-radius: 999px; pointer-events: none; }
-  .work-item.hide { display: none; }
-
-  .faq { border-top: 1px solid var(--line); }
-  .faq-item { border-bottom: 1px solid var(--line); padding: 22px 0; }
-  .faq-item h3 { font-family: var(--font-body); font-weight: 600; font-size: 16.5px; margin: 0 0 8px; color: var(--red); }
-  .faq-item p { font-size: 14.5px; line-height: 1.65; color: var(--ink-soft); margin: 0; }
-
-  .cta { text-align: center; padding: 80px 0; border-top: 1px solid var(--line); }
-  .cta h2 { font-family: var(--font-display); font-weight: 900; text-transform: uppercase; font-size: clamp(28px, 4vw, 42px); margin: 0 0 16px; }
-  .cta h2 em { font-style: normal; color: var(--red); }
-  .cta p { color: var(--ink-soft); max-width: 50ch; margin: 0 auto 30px; }
-
-  .copyright { text-align: center; font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.06em; color: var(--ink-soft); padding: 34px 20px 40px; border-top: 1px solid var(--line); }
-
-  .contact-ribbon { position: fixed; right: 0; top: 50%; transform: translateY(-50%); z-index: 30; display: flex; flex-direction: row-reverse; align-items: stretch; }
-  .contact-ribbon .cr-tab { writing-mode: vertical-rl; transform: rotate(180deg); font-family: var(--font-mono); font-size: 11.5px; letter-spacing: 0.14em; text-transform: uppercase; background: var(--red); color: #191016; border: 0; padding: 20px 9px; cursor: pointer; white-space: nowrap; border-radius: 0 8px 8px 0; box-shadow: 0 8px 20px rgba(0,0,0,0.45); }
-  .contact-ribbon .cr-panel { max-width: 0; overflow: hidden; white-space: nowrap; background: var(--paper); color: #1a1620; display: flex; flex-direction: column; justify-content: center; gap: 10px; padding: 14px 0; transition: max-width .25s ease; border-radius: 8px 0 0 8px; }
-  .contact-ribbon.open .cr-panel { max-width: 320px; }
-  .contact-ribbon .cr-panel a { font-family: var(--font-mono); font-size: 12.5px; letter-spacing: 0.04em; padding: 0 20px; color: #1a1620; text-decoration: none; }
-  .contact-ribbon .cr-panel a:hover { color: var(--red-ink); }
-  @media (hover: hover) { .contact-ribbon:hover .cr-panel { max-width: 320px; } }
-  @media (max-width: 780px) { .contact-ribbon .cr-tab { padding: 14px 7px; font-size: 10.5px; } .contact-ribbon.open .cr-panel { max-width: 250px; } }
-  .to-top { position: absolute; right: 0; top: 100%; margin-top: 10px; width: 34px; height: 34px; padding: 0; display: flex; align-items: center; justify-content: center; cursor: pointer; background: var(--bg-raised); color: var(--red); border: 1px solid var(--red); border-right: 0; border-radius: 8px 0 0 8px; opacity: 0; visibility: hidden; transform: translateY(6px); transition: opacity .2s ease, transform .2s ease, visibility .2s, background .15s ease, color .15s ease; }
-  .to-top.show { opacity: 1; visibility: visible; transform: none; }
-  .to-top:hover, .to-top:focus-visible { background: var(--red); color: #191016; }
-  .to-top svg { width: 18px; height: 18px; fill: none; stroke: currentColor; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
+  .portal-foot {
+    text-align: center; padding: 22px 20px; font-family: var(--font-mono); font-size: 12px; letter-spacing: 0.04em; color: var(--ink-soft);
+  }
+  .portal-foot a { color: var(--ink-soft); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 2px; }
+  .portal-foot a:hover { color: var(--red); border-color: var(--red); }
+  .portal-foot .sep { margin: 0 10px; opacity: 0.5; }
 </style>
 </head>
 <body>
 
-<div class="topbar">
-  <div class="mark-group">
-    <a class="mark" id="markMain" href="#">Toledo <span>Toons</span></a>
+<header class="site-header">
+  <a class="mark-group" id="markGroup" href="index.html">
+    <span class="mark" id="markMain">Toledo <span>Toons</span></span>
     <span class="mark-sub" id="markSub">A ScampArt Production</span>
-  </div>
-  <a class="back-link" href="https://scampart.com/">See My Professional Work &#8594;</a>
+  </a>
+</header>
+
+<div class="hero-tagline">
+  <h1>Get Drawn Into The <span class="accent">Fun</span></h1>
+  <p class="portal-question">How Do You Want Your Caricature?</p>
 </div>
+
+<div class="portal-grid">
+  <a class="portal-card is-order" href="order.html">
+    <div class="pc-illustration-wrap">
+      <svg class="art-blob" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+        <defs>
+          <radialGradient id="splatFallOrder" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+            <stop offset="0.42" stop-color="#fff" stop-opacity="0.9"/>
+            <stop offset="0.75" stop-color="#fff" stop-opacity="0.35"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="splatterOrder" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="14" result="warp"/>
+            <feDisplacementMap in="SourceGraphic" in2="warp" scale="120" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="5" result="fine"/>
+            <feColorMatrix in="fine" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.4 0 0 0 0" result="fineA"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="2" result="blot"/>
+            <feColorMatrix in="blot" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0 0 0 0" result="blotA"/>
+            <feComposite in="fineA" in2="blotA" operator="arithmetic" k1="0" k2="0.8" k3="0.5" k4="0" result="mix"/>
+            <feComposite in="shape" in2="mix" operator="arithmetic" k1="0" k2="2.6" k3="1.0" k4="-0.9" result="sum"/>
+            <feComponentTransfer in="sum" result="hard"><feFuncA type="linear" slope="14" intercept="-6.3"/></feComponentTransfer>
+            <feFlood flood-color="#E1503B" result="red"/>
+            <feComposite in="red" in2="hard" operator="in"/>
+          </filter>
+        </defs>
+        <circle cx="300" cy="300" r="235" fill="url(#splatFallOrder)" filter="url(#splatterOrder)"/>
+      </svg>
+      <img class="pc-illustration" src="images/order-steps.png" alt="Step 1: upload a photo. Step 2: I draw it. Step 3: receive it by email." loading="lazy">
+    </div>
+    <div class="pc-content">
+      <p class="pc-kicker">No Event Needed</p>
+      <h2>Order A Caricature<br>Online</h2>
+      <p class="pc-sub">Send a photo, pick your options, and get a custom digital caricature by mail. Face only or full body, black &amp; white or color.</p>
+      <span class="pc-cta">Start Your Order &#8594;</span>
+    </div>
+  </a>
+  <a class="portal-card is-event" href="live-events.html">
+    <div class="pc-illustration-wrap">
+      <svg class="art-blob" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
+        <defs>
+          <radialGradient id="splatFallEvent" cx="50%" cy="50%" r="50%">
+            <stop offset="0" stop-color="#fff" stop-opacity="1"/>
+            <stop offset="0.42" stop-color="#fff" stop-opacity="0.9"/>
+            <stop offset="0.75" stop-color="#fff" stop-opacity="0.35"/>
+            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+          </radialGradient>
+          <filter id="splatterEvent" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
+            <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="21" result="warp"/>
+            <feDisplacementMap in="SourceGraphic" in2="warp" scale="120" xChannelSelector="R" yChannelSelector="G" result="shape"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="8" result="fine"/>
+            <feColorMatrix in="fine" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.4 0 0 0 0" result="fineA"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="blot"/>
+            <feColorMatrix in="blot" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0 0 0 0" result="blotA"/>
+            <feComposite in="fineA" in2="blotA" operator="arithmetic" k1="0" k2="0.8" k3="0.5" k4="0" result="mix"/>
+            <feComposite in="shape" in2="mix" operator="arithmetic" k1="0" k2="2.6" k3="1.0" k4="-0.9" result="sum"/>
+            <feComponentTransfer in="sum" result="hard"><feFuncA type="linear" slope="14" intercept="-6.3"/></feComponentTransfer>
+            <feFlood flood-color="#E1503B" result="red"/>
+            <feComposite in="red" in2="hard" operator="in"/>
+          </filter>
+        </defs>
+        <circle cx="300" cy="300" r="235" fill="url(#splatFallEvent)" filter="url(#splatterEvent)"/>
+      </svg>
+      <img class="pc-illustration" src="images/hero-artist-drawing.webp" alt="Illustrated artist sketching on a drawing board" loading="lazy">
+    </div>
+    <div class="pc-content">
+      <p class="pc-kicker">For Your Event</p>
+      <h2>Live Event<br>Caricatures</h2>
+      <p class="pc-sub">Weddings, corporate parties, birthdays and fundraisers &mdash; drawn live, in black &amp; white, full color or digital.</p>
+      <span class="pc-cta">Explore Live Events &#8594;</span>
+    </div>
+  </a>
+</div>
+
+<div class="portal-foot">
+  <a href="mailto:scampart@gmail.com">scampart@gmail.com</a>
+  <span class="sep">&middot;</span>
+  <a href="https://scampart.com/">See My Professional Work &#8594;</a>
+</div>
+
 <script>
 (function(){
   function matchWidth(){
@@ -177,363 +191,6 @@
   if (document.fonts && document.fonts.ready) { document.fonts.ready.then(matchWidth); }
   window.addEventListener('load', matchWidth);
   window.addEventListener('resize', matchWidth);
-})();
-</script>
-
-<section class="hero">
-  <div class="wrap">
-    <div class="hero-copy">
-      <span class="kicker"><span class="dot"></span>Booking Now for 2026 &amp; 2027</span>
-      <h1>Get Drawn<br><em>Into The Fun.</em></h1>
-      <p>Weddings, corporate parties, birthdays and fundraisers get live caricatures, drawn on the spot in black and white, full color or digital. Thirty years of experience turning your guests into the best souvenir of the night.</p>
-      <div class="hero-actions">
-        <a class="btn btn-solid" href="contact.html">Get a Quote</a>
-        <a class="btn btn-outline" href="#gallery-work">See Samples</a>
-        <a class="btn btn-outline" href="#pricing">See Pricing</a>
-      </div>
-    </div>
-    <div class="hero-art">
-      <svg class="art-blob" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
-        <defs>
-          <radialGradient id="splatFallHero" cx="50%" cy="50%" r="50%">
-            <stop offset="0" stop-color="#fff" stop-opacity="1"/>
-            <stop offset="0.42" stop-color="#fff" stop-opacity="0.9"/>
-            <stop offset="0.75" stop-color="#fff" stop-opacity="0.35"/>
-            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-          </radialGradient>
-          <filter id="splatterHero" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
-            <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="21" result="warp"/>
-            <feDisplacementMap in="SourceGraphic" in2="warp" scale="120" xChannelSelector="R" yChannelSelector="G" result="shape"/>
-            <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="8" result="fine"/>
-            <feColorMatrix in="fine" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.4 0 0 0 0" result="fineA"/>
-            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="blot"/>
-            <feColorMatrix in="blot" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0 0 0 0" result="blotA"/>
-            <feComposite in="fineA" in2="blotA" operator="arithmetic" k1="0" k2="0.8" k3="0.5" k4="0" result="mix"/>
-            <feComposite in="shape" in2="mix" operator="arithmetic" k1="0" k2="2.6" k3="1.0" k4="-0.9" result="sum"/>
-            <feComponentTransfer in="sum" result="hard"><feFuncA type="linear" slope="14" intercept="-6.3"/></feComponentTransfer>
-            <feFlood flood-color="#E1503B" result="red"/>
-            <feComposite in="red" in2="hard" operator="in"/>
-          </filter>
-        </defs>
-        <circle cx="300" cy="300" r="235" fill="url(#splatFallHero)" filter="url(#splatterHero)"/>
-      </svg>
-      <img class="hero-logo" src="images/toledo-toons-logo.webp" alt="Toledo Toons logo">
-      <img src="images/hero-artist-drawing.webp" alt="Illustrated artist sketching on a drawing board" width="1070" height="1470">
-    </div>
-  </div>
-  <div class="gallery">
-    <img src="images/gallery/banner-strip.webp" alt="Strip of live event and commission caricatures in charcoal tone" loading="lazy">
-  </div>
-</section>
-
-<section class="section" id="pricing">
-  <div class="wrap">
-    <p class="section-num">01 / Pricing</p>
-    <h2>Simple Rates, <em>No Surprises.</em></h2>
-    <p class="lede">Every booking includes a 2-hour minimum and all drawing supplies. Every guest gets to keep their drawing, no extra charge, no upsells.</p>
-    <div class="rate-cards">
-      <div class="rate-card">
-        <p class="tag">Classic</p>
-        <h3>Black &amp; White</h3>
-        <p class="price">$175<span>/ hour</span></p>
-        <ul>
-          <li>2-hour minimum</li>
-          <li>About 10&ndash;15 guests drawn per hour</li>
-          <li>Pen and ink, the fastest and most affordable option</li>
-          <li>Great for larger guest counts on a budget</li>
-        </ul>
-      </div>
-      <div class="rate-card featured">
-        <p class="tag">Most Requested</p>
-        <h3>Full Color</h3>
-        <p class="price">$225<span>/ hour</span></p>
-        <ul>
-          <li>2-hour minimum</li>
-          <li>About 6&ndash;9 guests drawn per hour</li>
-          <li>Vivid color, more detail, a bolder keepsake</li>
-          <li>The most popular choice for weddings and milestone parties</li>
-        </ul>
-      </div>
-      <div class="rate-card">
-        <p class="tag">New</p>
-        <h3>Digital</h3>
-        <p class="price">$250<span>/ hour</span></p>
-        <ul>
-          <li>2-hour minimum</li>
-          <li>Drawn live on screen so guests watch it come together</li>
-          <li>Every drawing uploaded to a private online gallery to download later</li>
-          <li>Free logo or event name on every drawing</li>
-        </ul>
-      </div>
-    </div>
-    <div class="facts">
-      <div class="fact"><div class="num">30</div><div class="lbl">Years Experience</div></div>
-      <div class="fact"><div class="num">45mi</div><div class="lbl">Free Travel Radius</div></div>
-      <div class="fact"><div class="num">2hr</div><div class="lbl">Booking Minimum</div></div>
-      <div class="fact"><div class="num">25%</div><div class="lbl">Deposit To Book</div></div>
-    </div>
-  </div>
-</section>
-
-<section class="section showcase">
-  <div class="wrap">
-    <div class="showcase-art">
-      <svg class="art-blob" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
-        <defs>
-          <radialGradient id="splatFallShowcase" cx="50%" cy="50%" r="50%">
-            <stop offset="0" stop-color="#fff" stop-opacity="1"/>
-            <stop offset="0.42" stop-color="#fff" stop-opacity="0.9"/>
-            <stop offset="0.75" stop-color="#fff" stop-opacity="0.35"/>
-            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-          </radialGradient>
-          <filter id="splatterShowcase" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
-            <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="33" result="warp"/>
-            <feDisplacementMap in="SourceGraphic" in2="warp" scale="120" xChannelSelector="R" yChannelSelector="G" result="shape"/>
-            <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="12" result="fine"/>
-            <feColorMatrix in="fine" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.4 0 0 0 0" result="fineA"/>
-            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="6" result="blot"/>
-            <feColorMatrix in="blot" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0 0 0 0" result="blotA"/>
-            <feComposite in="fineA" in2="blotA" operator="arithmetic" k1="0" k2="0.8" k3="0.5" k4="0" result="mix"/>
-            <feComposite in="shape" in2="mix" operator="arithmetic" k1="0" k2="2.6" k3="1.0" k4="-0.9" result="sum"/>
-            <feComponentTransfer in="sum" result="hard"><feFuncA type="linear" slope="14" intercept="-6.3"/></feComponentTransfer>
-            <feFlood flood-color="#E1503B" result="red"/>
-            <feComposite in="red" in2="hard" operator="in"/>
-          </filter>
-        </defs>
-        <circle cx="300" cy="300" r="235" fill="url(#splatFallShowcase)" filter="url(#splatterShowcase)"/>
-      </svg>
-      <img src="images/digital-setup.webp" alt="Digital caricature setup with tablet, external monitor and printer at an event" width="1448" height="1086">
-    </div>
-    <div class="showcase-copy">
-      <p class="section-num">02 / Digital Setup</p>
-      <h2>See It <em>In Action.</em></h2>
-      <p class="lede">This is the actual setup: drawn live on a tablet, mirrored to an external monitor so your guests watch every line happen, with instant prints ready right at the table.</p>
-      <ul>
-        <li>Compact enough for any table or corner of the room</li>
-        <li>Guests gather around the screen, not just the artist</li>
-        <li>Prints in hand in seconds, plus the online gallery for everyone else</li>
-      </ul>
-    </div>
-  </div>
-</section>
-
-<section class="section" id="gallery-work">
-  <div class="wrap">
-    <p class="section-num">03 / Gallery</p>
-    <h2>See The <em>Work.</em></h2>
-    <p class="lede">A mix of live event drawings and digital commissions, black and white, full color and digital.</p>
-    <div class="filter-chips">
-      <button class="filter-chip active" data-filter="all">All</button>
-      <button class="filter-chip" data-filter="live">Live Events</button>
-      <button class="filter-chip" data-filter="commission">Commissions</button>
-    </div>
-    <div class="work-grid">
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-comic-team-up.webp" alt="Color caricature of a family as a superhero team" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-boy-racing-cap.webp" alt="Live event caricature of a boy in a racing cap" loading="lazy"><span class="badge">Live</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-bw-elderly-couple-scowl.webp" alt="Black and white caricature of a couple" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-young-man.webp" alt="Live event caricature of a young man" loading="lazy"><span class="badge">Live</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-explorer-travel.webp" alt="Color caricature of an explorer with a telescope" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-man-mohawk.webp" alt="Live event caricature of a man with a mohawk" loading="lazy"><span class="badge">Live</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-bw-elderly-couple-smiling.webp" alt="Black and white caricature of a smiling couple" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-mustache-man.webp" alt="Live event caricature of a man with a mustache" loading="lazy"><span class="badge">Live</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-wedding-couple.webp" alt="Color caricature of a wedding couple" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-man-red-cap.webp" alt="Live event caricature of a man in a red cap" loading="lazy"><span class="badge">Live</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-bw-young-woman.webp" alt="Black and white caricature of a young woman" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-bearded-man.webp" alt="Live event caricature of a bearded man" loading="lazy"><span class="badge">Live</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-muscle-car-road-trip.webp" alt="Color caricature of friends on a road trip" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-teen-sports-cap.webp" alt="Live event caricature of a teen in a sports cap" loading="lazy"><span class="badge">Live</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-bw-man-portrait.webp" alt="Black and white caricature portrait of a man" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-boy-braces.webp" alt="Live event caricature of a boy with braces" loading="lazy"><span class="badge">Live</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-quality-control.webp" alt="Color caricature for a quality control team" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-brooklyn-man.webp" alt="Live event caricature of a man in a Brooklyn tank top" loading="lazy"><span class="badge">Live</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-50th-birthday.webp" alt="Color caricature for a 50th birthday" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="live"><img src="images/gallery/live-caricature-couple.webp" alt="Live event caricature of a couple" loading="lazy"><span class="badge">Live</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-frequent-flyer.webp" alt="Color caricature of a woman with award medals" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-anniversary-couple.webp" alt="Color caricature of an anniversary couple" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-drummer-boy.webp" alt="Color caricature of a boy playing a drum" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-watering-can-woman.webp" alt="Color caricature of a woman watering plants" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-retro-villain.webp" alt="Retro style color caricature portrait" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-cheerleader.webp" alt="Color caricature of a cheerleader" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-avengers-family.webp" alt="Color caricature of a family as the Avengers superheroes" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-bobblehead-crate.webp" alt="Color caricature bobblehead figure in a crate" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-cartoon-basketball.webp" alt="Color caricature of a basketball player" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-construction-quality-control.webp" alt="Color caricature for a construction quality control team" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-dragon-boat-team.webp" alt="Color caricature of a dragon boat racing team" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-explorer-luggage.webp" alt="Color caricature of an explorer with luggage" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-firefighter.webp" alt="Color caricature of a firefighter" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-framed-portraits.webp" alt="Color caricature framed portrait strip" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-frequent-flyer-2.webp" alt="Color caricature of a frequent flyer with luggage tags" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-golfer.webp" alt="Color caricature of a golfer" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-lakeside-cats.webp" alt="Color caricature of a woman with cats by a lake" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-mustang-road-trip.webp" alt="Color caricature of friends on a road trip in a Mustang" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-line-art-couple.webp" alt="Black and white line art caricature of a couple" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-pizza-cook.webp" alt="Color caricature of a pizza cook" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-retirement-truck.webp" alt="Color caricature for a retirement with a truck" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-retro-cartoon-villain.webp" alt="Retro style color caricature of a cartoon villain" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-retro-gamer.webp" alt="Color caricature of a retro video gamer" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-shirt-rip-hero.webp" alt="Color caricature of a superhero ripping open his shirt" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-superhero-comic-cover.webp" alt="Color caricature styled as a superhero comic book cover" loading="lazy"><span class="badge">Commission</span></div>
-      <div class="work-item" data-category="commission"><img src="images/gallery/comm-wedding-couple-2.webp" alt="Color caricature of a wedding couple" loading="lazy"><span class="badge">Commission</span></div>
-    </div>
-  </div>
-</section>
-
-<script>
-(function(){
-  var chips = document.querySelectorAll('.filter-chip');
-  var items = document.querySelectorAll('.work-item');
-  chips.forEach(function(chip){
-    chip.addEventListener('click', function(){
-      chips.forEach(function(c){ c.classList.remove('active'); });
-      chip.classList.add('active');
-      var filter = chip.getAttribute('data-filter');
-      items.forEach(function(item){
-        if (filter === 'all' || item.getAttribute('data-category') === filter) {
-          item.classList.remove('hide');
-        } else {
-          item.classList.add('hide');
-        }
-      });
-    });
-  });
-})();
-</script>
-
-<section class="section" id="addons">
-  <div class="wrap">
-    <p class="section-num">04 / Add-Ons</p>
-    <h2>Make It <em>Extra.</em></h2>
-    <p class="lede">Optional touches for weddings and corporate events. Add any of these to any booking.</p>
-    <div class="rate-cards">
-      <div class="rate-card">
-        <p class="tag">Popular for Corporate Events</p>
-        <h3>Branded Paper</h3>
-        <p class="price">$50<span>flat fee</span></p>
-        <ul>
-          <li>Your logo, company name or event name printed at the top of every Black &amp; White or Full Color drawing</li>
-          <li>Included free with the Digital tier</li>
-          <li>Great for trade shows, holiday parties and brand activations</li>
-        </ul>
-      </div>
-      <div class="rate-card">
-        <p class="tag">Keeps Drawings Pristine</p>
-        <h3>Protective Sleeves</h3>
-        <p class="price">$25<span>flat fee</span></p>
-        <ul>
-          <li>Clear sleeve for every drawing so it survives the ride home</li>
-          <li>Especially worth it for weddings and long guest lists</li>
-        </ul>
-      </div>
-      <div class="rate-card">
-        <p class="tag">For the Digital Tier</p>
-        <h3>On-Site Printing</h3>
-        <p class="price">$50<span>flat fee</span></p>
-        <ul>
-          <li>Instant 4x6 prints handed out on the spot, on top of the online gallery download</li>
-          <li>Covers paper and ink for the event</li>
-          <li>Skip it and everyone still gets their drawing through the gallery link</li>
-        </ul>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section">
-  <div class="wrap">
-    <p class="section-num">05 / Good To Know</p>
-    <h2>Travel, Deposits <em>&amp; Booking.</em></h2>
-    <div class="policy-grid">
-      <div class="policy">
-        <h3>Travel</h3>
-        <p>Free within 45 miles of Sylvania / Toledo, Ohio. Beyond that, travel is billed at $1 per mile, one way. That covers Ann Arbor, Detroit's south side, Findlay and Fremont with no travel charge at all.</p>
-      </div>
-      <div class="policy">
-        <h3>Deposit</h3>
-        <p>A 25% deposit holds your date and is non-refundable. The remaining balance is due the day of your event, before drawing begins. Venmo, Zelle, check or card all work.</p>
-      </div>
-      <div class="policy">
-        <h3>Cancellations</h3>
-        <p>Life happens, and reschedules are always welcome with notice. If an event is cancelled within 14 days of the date, the full balance is due, since that date is held exclusively for you.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="section faq">
-  <div class="wrap">
-    <p class="section-num">06 / FAQ</p>
-    <h2>Questions <em>People Ask.</em></h2>
-    <div class="faq-item">
-      <h3>How many people can you draw per hour?</h3>
-      <p>Black and white runs about 10 to 15 guests an hour. Full color is more detailed and runs about 6 to 9 an hour. For a big guest list in a short window, black and white keeps the line moving. For a smaller, more intimate event, color makes a stronger keepsake.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What kind of events do you do?</h3>
-      <p>Weddings and receptions, corporate parties and holiday events, birthdays, retirements, school and church events, and fundraisers. If it has people in one room for a couple hours, it works.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Do you need anything from us?</h3>
-      <p>Just a table, a chair, and a bit of space near where guests are mingling. I bring my own paper, pens and easel. For digital sessions I'll also need a table for my monitor and a nearby outlet. We'll go over the exact setup when we lock in your event details.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How does the digital option work?</h3>
-      <p>I draw on a tablet with an external monitor facing your guests, so everyone can watch the drawing happen in real time. Every drawing is uploaded to a private online gallery guests can download from after the event. If you'd like instant prints handed out on the spot too, that's available as an add-on.</p>
-    </div>
-    <div class="faq-item">
-      <h3>Can we add more hours the day of the event?</h3>
-      <p>Yes, if the schedule allows. Extra time is billed at the same hourly rate, rounded up to the next half hour.</p>
-    </div>
-    <div class="faq-item">
-      <h3>What if we have a really big guest list?</h3>
-      <p>I can bring in additional artists for larger events so the line keeps moving. Let me know your expected guest count when you reach out and I'll recommend how many artists and hours you'll need.</p>
-    </div>
-    <div class="faq-item">
-      <h3>How do we book?</h3>
-      <p>Send your event date, location and guest count through the contact form. I'll confirm availability and pricing, and your date is held once the deposit is paid.</p>
-    </div>
-  </div>
-</section>
-
-<section class="cta" id="contact-cta">
-  <div class="wrap">
-    <h2>Let's Draw Your <em>Guests In.</em></h2>
-    <p>Tell me your date, location and guest count, and I'll send a quote back within a day or two.</p>
-    <a class="btn btn-solid" href="contact.html">Get a Quote &#8594;</a>
-  </div>
-</section>
-
-<p class="copyright">&copy; Toledo Toons. Live caricatures by Shawn Camp / Scamp Art</p>
-
-<div class="contact-ribbon" id="contactRibbon">
-  <button type="button" class="cr-tab" id="crTab" aria-expanded="false" aria-controls="crPanel">Get A Quote</button>
-  <div class="cr-panel" id="crPanel">
-    <a href="mailto:scampart@gmail.com">scampart@gmail.com</a>
-    <a href="contact.html">Book Your Event &#8594;</a>
-  </div>
-  <button type="button" class="to-top" id="toTop" aria-label="Back to top" title="Back to top"><svg viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M12 19V5M5.5 11.5L12 5l6.5 6.5"/></svg></button>
-</div>
-
-<script>
-(function () {
-  var r = document.getElementById("contactRibbon"), t = document.getElementById("crTab");
-  if (!r || !t) return;
-  t.addEventListener("click", function (e) {
-    e.stopPropagation();
-    var o = r.classList.toggle("open");
-    t.setAttribute("aria-expanded", String(o));
-  });
-  document.addEventListener("click", function (e) {
-    if (!r.contains(e.target)) { r.classList.remove("open"); t.setAttribute("aria-expanded", "false"); }
-  });
-})();
-(function () {
-  var btn = document.getElementById("toTop"); if (!btn) return;
-  function update() { btn.classList.toggle("show", (window.pageYOffset || document.documentElement.scrollTop) > 500); }
-  window.addEventListener("scroll", update, { passive: true }); update();
-  btn.addEventListener("click", function () {
-    var still = window.matchMedia && window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    window.scrollTo({ top: 0, behavior: still ? "auto" : "smooth" });
-  });
 })();
 </script>
 

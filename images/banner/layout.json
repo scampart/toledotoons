@@ -1,0 +1,114 @@
+{
+  "units": "SVG viewBox units",
+  "mobile_breakpoint_css_px": 768,
+  "billboards": {
+    "wide": {
+      "viewBox": [
+        0,
+        0,
+        1000,
+        660
+      ],
+      "face": [
+        20,
+        90,
+        960,
+        390
+      ],
+      "logo_safe_area": [
+        50,
+        114,
+        384.0,
+        342
+      ],
+      "slideshow_safe_area": [
+        490.0,
+        114,
+        460.0,
+        342
+      ],
+      "lamp_centers": [
+        180.0,
+        500.0,
+        820.0
+      ]
+    },
+    "compact": {
+      "viewBox": [
+        0,
+        0,
+        640,
+        620
+      ],
+      "face": [
+        20,
+        80,
+        600,
+        400
+      ],
+      "logo_safe_area": [
+        48,
+        104,
+        544,
+        352
+      ],
+      "slideshow_safe_area": null,
+      "lamp_centers": [
+        120.0,
+        320.0,
+        520.0
+      ]
+    },
+    "small": {
+      "viewBox": [
+        0,
+        0,
+        440,
+        530
+      ],
+      "face": [
+        20,
+        70,
+        400,
+        320
+      ],
+      "logo_safe_area": [
+        48,
+        94,
+        344,
+        272
+      ],
+      "slideshow_safe_area": null,
+      "lamp_centers": [
+        120.0,
+        320.0
+      ]
+    }
+  },
+  "desktop_scene": {
+    "viewBox": [
+      0,
+      0,
+      2048,
+      682
+    ],
+    "billboard_transform": {
+      "x": 987,
+      "y": 23,
+      "scale": 0.944
+    }
+  },
+  "mobile_scene": {
+    "viewBox": [
+      0,
+      0,
+      720,
+      960
+    ],
+    "billboard_transform": {
+      "x": 40,
+      "y": 315,
+      "scale": 1
+    }
+  }
+}

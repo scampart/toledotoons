@@ -1,0 +1,245 @@
+/* Toledo Toons frog skin
+   Loaded AFTER each page's inline <style>, so it only changes looks: colors, type, surfaces, header.
+   Layout, structure and copy are untouched. Palette and rules from Toledo_Toons_Brand_Guide.html
+   (images/brand/). To revert the whole look, remove the <link rel="stylesheet" href="skin.css"> line. */
+
+:root {
+  /* brand palette */
+  --black: #111111;
+  --teal: #009B9A;
+  --red: #EF3438;
+  --white: #FFFFFF;
+  --purple: #48266B;       /* night purple: site backgrounds */
+  --charcoal: #303030;
+  --city: #777777;
+  --light: #D9D9D9;
+  /* working tints for this site (dark surface under cards, hover) */
+  --purple-deep: #3A1E57;
+  --red-dk: #C9262A;
+  --teal-dk: #007A79;
+
+  /* the variables the existing pages already use */
+  --bg: var(--purple);
+  --bg-raised: var(--purple-deep);
+  --paper: var(--white);
+  --ink: var(--white);
+  --ink-soft: var(--light);
+  --red-ink: var(--red-dk);
+  --line: rgba(255, 255, 255, 0.16);
+  --line-strong: rgba(255, 255, 255, 0.34);
+  --font-display: "Lilita One", "Arial Rounded MT Bold", "Arial Black", sans-serif;
+  --font-body: "Work Sans", "Segoe UI", sans-serif;
+  --font-mono: "Work Sans", "Segoe UI", sans-serif;
+  --font-hand: "Work Sans", "Segoe UI", sans-serif;
+}
+
+html { scroll-behavior: smooth; }
+body { line-height: 1.6; }
+:focus-visible { outline: 3px solid var(--white); outline-offset: 3px; }
+
+/* ---------- type ---------- */
+/* headings: Lilita One is upright, chunky and rounded like the TOONS lettering in the logo (swap --font-display to change it) */
+h1, h2, h3, .price, .num, .pt-value, .mark { font-weight: 400 !important; letter-spacing: 0.01em; }
+.hero-tagline h1 { font-size: clamp(28px, 4.8vw, 52px); line-height: 1.02; }
+.portal-question { font-size: clamp(15px, 2.2vw, 22px); letter-spacing: 0.03em; color: var(--red); }
+.hero h1 { font-size: clamp(30px, 4.6vw, 50px); line-height: 1.02; }
+.page-head h1 { font-size: clamp(28px, 4.4vw, 44px); line-height: 1.02; }
+.section h2, .cta h2 { font-size: clamp(26px, 3.4vw, 38px); line-height: 1.04; }
+.pc-content h2 { font-size: clamp(26px, 3.4vw, 36px); line-height: 1.04; }
+.rate-card h3 { font-size: 22px; }
+.rate-card .price { font-size: 38px; }
+.fact .num { font-size: 28px; }
+.step h3 { font-size: 20px; }
+.price-total .pt-value { font-size: 34px; }
+.cthanks h2 { font-size: 26px; }
+.mark { font-size: 22px; }
+
+/* small uppercase labels: bold sans in place of mono */
+.kicker, .section-num, .step-num, .pc-kicker, .rate-card .tag, .fact .lbl, .policy h3, .btn, .pc-cta,
+.filter-chip, .back-link, .pro-work-link, .mark-sub, .copyright, .portal-foot, .price-card h3,
+.side-card h3, .cform label, .cform label.flabel, .body-desc label, .option-card .oc-title,
+.price-total .pt-label, .upload-drop .ud-main, .chip-group span, .cr-tab, .cr-panel a, .badge, .file-clear {
+  font-weight: 700;
+}
+.section-num, .step-num, .pc-kicker, .rate-card .tag, .policy h3, .price-card h3, .side-card h3 {
+  color: var(--white);
+  border-left: 4px solid var(--teal);
+  padding-left: 10px;
+}
+.pc-kicker { display: inline-block; }
+
+/* accent words in headings: frog teal */
+.hero h1 em, .hero h1 .accent, .hero-tagline h1 .accent, .section h2 em, .cta h2 em,
+.pc-content h2 .accent, .page-head h1 em, .page-head h1 .accent, .cthanks h2 em { color: var(--teal); }
+.rate-card .price, .fact .num, .price-total .pt-value { color: var(--teal); }
+.faq-item h3 { color: var(--white); }
+
+/* ---------- buttons: red = action ---------- */
+.btn, .pc-cta, .cform button[type="submit"] { border-radius: 999px; }
+.btn-solid, .pc-cta, .cform button[type="submit"] {
+  background: var(--red); border-color: var(--red); color: var(--black); box-shadow: none;
+}
+.btn-solid:hover, .portal-card:hover .pc-cta, .cform button[type="submit"]:hover {
+  background: var(--red-dk); border-color: var(--red-dk); color: var(--white); box-shadow: none;
+}
+.btn:active, .cform button[type="submit"]:active { transform: scale(0.97); }
+.btn-outline { border-color: var(--white); color: var(--white); }
+.btn-outline:hover { background: var(--white); color: var(--purple); border-color: var(--white); }
+.filter-chip { border-color: var(--line-strong); color: var(--light); }
+.filter-chip:hover { border-color: var(--white); color: var(--white); }
+.filter-chip.active, .chip-group input:checked + span { background: var(--red); border-color: var(--red); color: var(--black); }
+.stepper button:hover { background: var(--red); color: var(--black); }
+.contact-ribbon .cr-tab { background: var(--red); color: var(--black); }
+.to-top { color: var(--white); border-color: var(--white); background: var(--purple-deep); }
+.to-top:hover, .to-top:focus-visible { background: var(--red); color: var(--black); border-color: var(--red); }
+.contact-ribbon .cr-panel { background: var(--white); color: var(--black); }
+.contact-ribbon .cr-panel a { color: var(--black); }
+.contact-ribbon .cr-panel a:hover { color: var(--red-dk); }
+.preview-flag { background: var(--red); color: var(--black); }
+.back-link:hover, .pro-work-link:hover { color: var(--white); border-color: var(--white); }
+.back-link, .pro-work-link { color: var(--white); border-bottom-color: var(--line-strong); }
+
+/* ---------- header: same layout as the live site; the new logo is built for the purple, no panel needed ---------- */
+.top-band, .topbar { background: var(--purple); border-bottom: 0; }
+.mark-logo {
+  width: 240px; height: auto; max-width: 100%;   /* brand minimum is 240px wide */
+  background: none; padding: 0; border-radius: 0;
+}
+.mark-sub { color: var(--white); }
+
+/* ---------- surfaces ---------- */
+.portal-card, .pc-content { background: var(--purple-deep); }
+.portal-grid { background: var(--line); }
+.pc-illustration { filter: none; }
+.rate-card, .price-card, .side-card, .cthanks { border-radius: 18px; border-color: var(--line-strong); background: var(--purple-deep); }
+.rate-card.featured { border-color: var(--red); border-width: 2px; }
+.work-item { border-radius: 14px; background: var(--purple-deep); }
+.work-item .badge { background: rgba(48, 48, 48, 0.88); }
+.option-card span { border-radius: 14px; }
+.option-card input:checked + span { border-color: var(--red); background: rgba(239, 52, 56, 0.14); }
+.option-card input:checked + span .oc-title, .option-card input:checked + span .oc-icon { color: var(--white); }
+.upload-drop { border-radius: 14px; }
+.upload-drop.dragover { border-color: var(--red); background: rgba(239, 52, 56, 0.12); }
+.cform input[type="text"], .cform input[type="email"], .cform input[type="tel"], .cform input[type="date"],
+.cform input[type="number"], .cform input[type="file"], .cform textarea, .body-desc textarea { border-radius: 10px; background: var(--purple-deep); }
+.cform input:focus, .cform textarea:focus, .body-desc textarea:focus { border-color: var(--white); }
+.stepper { border-radius: 10px; }
+.kicker { border-color: var(--line-strong); color: var(--white); }
+.kicker .dot { background: var(--teal); box-shadow: 0 0 0 3px rgba(0, 155, 154, 0.3); }
+.rate-card li::before, .showcase-copy li::before, .side-card li::before { color: var(--teal); }
+.lightbox { background: rgba(26, 11, 42, 0.94); }
+.lightbox-close { background: var(--purple-deep); }
+.lightbox img { border-radius: 10px; }
+.cstatus.error, .people-note.warn { color: var(--white); }
+.cstatus.error::before, .people-note.warn::before { content: "! "; color: var(--red); font-weight: 700; }
+.cform label i, .body-desc label i { color: var(--white); }
+.faq-item { border-color: var(--line); }
+
+/* ---------- pricing: the one light panel (white, per palette) ---------- */
+#pricing.section { background: var(--white); color: var(--black); border-top: 0; }
+#pricing .section-num { color: var(--black); }
+#pricing .lede { color: var(--charcoal); }
+#pricing .rate-card { background: var(--white); border-color: var(--light); }
+#pricing .rate-card.featured { border-color: var(--red); }
+#pricing .rate-card h3 { color: var(--black); }
+#pricing .rate-card .tag { color: var(--black); }
+#pricing .rate-card ul { color: var(--charcoal); }
+#pricing .rate-card .price span { color: var(--charcoal); }
+#pricing .fact { border-top-color: var(--black); }
+#pricing .fact .lbl { color: var(--charcoal); }
+#pricing .section h2 em, #pricing h2 em { color: var(--teal-dk); }
+#pricing .fact .num, #pricing .rate-card .price { color: var(--teal-dk); }
+
+/* flat skyline between sections for a little scenery without changing layout */
+.cta { border-top: 0; background: var(--purple-deep); }
+.copyright { background: var(--charcoal); color: var(--light); border-top: 0; }
+
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* burst behind the artwork: flat, comic-style */
+.art-blob { filter: none; }
+.hero-art img { filter: none !important; }
+.pc-illustration { filter: none; }
+
+
+/* burst sized by the available height so it can't be cut off by the text block below */
+.portal-card .pc-illustration-wrap { overflow: visible; }
+.portal-card .art-blob { width: auto; height: 94%; max-width: none; aspect-ratio: 1; top: 50%; }
+
+/* home page banner: shorter */
+.top-band { padding: 16px 34px 0; }
+.top-band .mark-logo { width: clamp(140px, 11.5vw, 170px); }
+.top-band .hero-tagline { padding: 4px 20px 18px; }
+
+/* ---------- footer: professional-work link ---------- */
+.copyright a, .portal-foot a { color: var(--white); text-decoration: none; border-bottom: 1px solid var(--line-strong); padding-bottom: 1px; font-weight: 700; }
+.copyright a:hover, .portal-foot a:hover { border-color: var(--white); }
+.copyright .sep, .portal-foot .sep { margin: 0 8px; opacity: .6; }
+
+/* ---------- order page: purple banner, white page ---------- */
+body.light-page {
+  --bg: #FFFFFF;
+  --bg-raised: #F4F4F4;
+  --ink: #111111;
+  --ink-soft: #303030;
+  --line: rgba(17, 17, 17, 0.12);
+  --line-strong: rgba(17, 17, 17, 0.32);
+  background: #FFFFFF; color: #111111;
+}
+body.light-page :focus-visible { outline-color: var(--teal-dk); }
+body.light-page .topbar { background: var(--purple); }
+body.light-page .kicker { color: var(--black); border-color: var(--line-strong); }
+body.light-page .kicker .dot { background: var(--teal-dk); box-shadow: 0 0 0 3px rgba(0, 122, 121, 0.2); }
+body.light-page .page-head h1 em, body.light-page .page-head h1 .accent { color: var(--teal-dk); }
+body.light-page .step-num, body.light-page .price-card h3 { color: var(--black); }
+body.light-page .price-card, body.light-page .cthanks { background: var(--bg-raised); border-color: var(--light); }
+body.light-page .rate-card.featured { border-color: var(--red); }
+body.light-page .price-total .pt-value, body.light-page .cthanks h2 em { color: var(--teal-dk); }
+body.light-page .price-line span:last-child { color: var(--black); }
+body.light-page .option-card span { border-color: var(--light); background: #FFFFFF; }
+body.light-page .option-card span:hover { border-color: var(--city); }
+body.light-page .option-card .oc-title { color: var(--black); }
+body.light-page .option-card input:checked + span { border-color: var(--red); background: rgba(239, 52, 56, 0.07); }
+body.light-page .option-card input:checked + span .oc-title { color: var(--black); }
+body.light-page .option-card input:checked + span .oc-icon { color: var(--red-dk); }
+body.light-page .oc-icon { color: var(--city); }
+body.light-page .stepper { border-color: var(--light); }
+body.light-page .stepper button { background: var(--bg-raised); color: var(--black); }
+body.light-page .stepper button:hover { background: var(--red); color: var(--black); }
+body.light-page .stepper input { background: #FFFFFF; color: var(--black); border-color: var(--light); }
+body.light-page .cform input[type="text"], body.light-page .cform input[type="email"], body.light-page .cform input[type="tel"],
+body.light-page .cform input[type="file"], body.light-page .body-desc textarea { background: #FFFFFF; color: var(--black); border-color: var(--city); }
+body.light-page .cform input:focus, body.light-page .body-desc textarea:focus { border-color: var(--teal-dk); outline: 2px solid var(--teal-dk); outline-offset: 1px; }
+body.light-page .cform label i, body.light-page .body-desc label i { color: var(--red-dk); }
+body.light-page .upload-drop { border-color: var(--city); background: #FFFFFF; }
+body.light-page .upload-drop.dragover { border-color: var(--red); background: rgba(239, 52, 56, 0.07); }
+body.light-page .upload-drop .ud-main .ud-link, body.light-page .file-clear { color: var(--red-dk); }
+body.light-page .file-list li { background: var(--bg-raised); border-color: var(--light); }
+body.light-page .people-note.warn, body.light-page .cstatus.error { color: var(--red-dk); }
+body.light-page .cstatus.error::before, body.light-page .people-note.warn::before { color: var(--red-dk); }
+body.light-page .to-top { background: #FFFFFF; color: var(--black); border-color: var(--black); }
+body.light-page .to-top:hover, body.light-page .to-top:focus-visible { background: var(--red); color: var(--black); border-color: var(--red); }
+
+/* option cards: the old rules boxed every line inside the card as well as the card itself */
+.option-card span span, body.light-page .option-card span span { border: 0; padding: 0; border-radius: 0; background: none; }
+
+/* ---------- button that jumps between the two services ---------- */
+.switch-btn {
+  position: absolute; right: 40px; top: 50%; transform: translateY(-50%);
+  display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+  font-family: var(--font-body); font-weight: 700; font-size: 13px; letter-spacing: .05em; text-transform: uppercase;
+  background: var(--white); color: var(--purple); padding: 13px 22px; border-radius: 999px;
+  transition: background .2s ease, color .2s ease, transform .2s ease;
+}
+.switch-btn:hover { background: var(--red); color: var(--black); }
+.switch-btn:active { transform: translateY(-50%) scale(.97); }
+@media (max-width: 700px) { .switch-btn { position: static; transform: none; } .switch-btn:active { transform: scale(.97); } }
+
+/* ---------- order page: frog teal for the actions ---------- */
+body.light-page .cform button[type="submit"] { background: var(--teal-dk); border-color: var(--teal-dk); color: var(--white); }
+body.light-page .cform button[type="submit"]:hover { background: #005a59; border-color: #005a59; color: var(--white); }
+body.light-page .option-card input:checked + span { border-color: var(--teal-dk); background: rgba(0, 122, 121, 0.08); }
+body.light-page .option-card input:checked + span .oc-icon { color: var(--teal-dk); }
+body.light-page .stepper button:hover { background: var(--teal-dk); color: var(--white); }
+body.light-page .upload-drop.dragover { border-color: var(--teal-dk); background: rgba(0, 122, 121, 0.08); }
+body.light-page .upload-drop .ud-main .ud-link, body.light-page .file-clear { color: var(--teal-dk); }

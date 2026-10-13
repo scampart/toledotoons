@@ -3,12 +3,12 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Toledo Toons | Live Caricature Events &amp; Custom Digital Caricatures</title>
+<title>Toledo Toons</title>
 <meta name="description" content="Toledo Toons by Shawn Camp / Scamp Art. Book live caricature entertainment for your event, or order a custom digital caricature online from a photo, no event needed.">
 <link rel="canonical" href="https://toledotoons.com/">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@400;600;700;900&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&family=JetBrains+Mono:wght@500;700&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Lilita+One&family=Work+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 <style>
   :root {
     --bg: #151319;
@@ -16,7 +16,7 @@
     --paper: #E8D9B0;
     --ink: #E8D9B0;
     --ink-soft: #B6B1A6;
-    --red: #E1503B;
+    --red: #EF3438;
     --red-ink: #C43D2B;
     --line: rgba(244,241,233,0.14);
     --line-strong: rgba(244,241,233,0.28);
@@ -85,14 +85,18 @@
   .portal-foot a:hover { color: var(--red); border-color: var(--red); }
   .portal-foot .sep { margin: 0 10px; opacity: 0.5; }
 </style>
+<link rel="stylesheet" href="skin.css">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" href="images/brand/favicon-frog-48.png" sizes="48x48" type="image/png">
+<link rel="icon" href="images/brand/favicon-frog.png" sizes="256x256" type="image/png">
+<link rel="apple-touch-icon" href="images/brand/apple-touch-icon.png">
 </head>
 <body>
 
 <div class="top-band">
   <header class="site-header">
     <a class="mark-group" id="markGroup" href="index.html">
-      <img class="mark-logo" id="markMain" src="images/toledo-toons-logo.webp" alt="Toledo Toons">
-      <span class="mark-sub" id="markSub">A ScampArt Production</span>
+      <img class="mark-logo" id="markMain" src="images/brand/toledo-toons-logo.png" width="747" height="679" alt="Toledo Toons">
     </a>
   </header>
 
@@ -100,38 +104,17 @@
     <h1>Get <span class="accent">Drawn</span> Into The Fun</h1>
     <p class="portal-question">How Do You Want Your Caricature?</p>
   </div>
-
-  <a class="pro-work-link" href="https://scampart.com/">See My Professional Work &#8594;</a>
 </div>
 
 <div class="portal-grid">
   <a class="portal-card is-order" href="order.html">
     <div class="pc-illustration-wrap">
       <svg class="art-blob" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
-        <defs>
-          <radialGradient id="splatFallOrder" cx="50%" cy="50%" r="50%">
-            <stop offset="0" stop-color="#fff" stop-opacity="1"/>
-            <stop offset="0.42" stop-color="#fff" stop-opacity="0.9"/>
-            <stop offset="0.75" stop-color="#fff" stop-opacity="0.35"/>
-            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-          </radialGradient>
-          <filter id="splatterOrder" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
-            <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="14" result="warp"/>
-            <feDisplacementMap in="SourceGraphic" in2="warp" scale="120" xChannelSelector="R" yChannelSelector="G" result="shape"/>
-            <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="5" result="fine"/>
-            <feColorMatrix in="fine" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.4 0 0 0 0" result="fineA"/>
-            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="2" result="blot"/>
-            <feColorMatrix in="blot" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0 0 0 0" result="blotA"/>
-            <feComposite in="fineA" in2="blotA" operator="arithmetic" k1="0" k2="0.8" k3="0.5" k4="0" result="mix"/>
-            <feComposite in="shape" in2="mix" operator="arithmetic" k1="0" k2="2.6" k3="1.0" k4="-0.9" result="sum"/>
-            <feComponentTransfer in="sum" result="hard"><feFuncA type="linear" slope="14" intercept="-6.3"/></feComponentTransfer>
-            <feFlood flood-color="#E1503B" result="red"/>
-            <feComposite in="red" in2="hard" operator="in"/>
-          </filter>
-        </defs>
-        <circle cx="300" cy="300" r="235" fill="url(#splatFallOrder)" filter="url(#splatterOrder)"/>
+        <polygon points="300.0,8.0 329.6,94.1 374.9,44.8 386.4,110.8 453.5,61.1 436.2,142.8 495.0,131.0 475.0,187.5 565.6,178.7 499.6,241.4 563.3,262.1 508.0,300.0 581.1,340.4 499.6,358.6 534.7,407.2 475.0,412.5 520.7,491.2 436.2,457.2 443.8,523.8 386.4,489.2 380.0,572.5 329.6,505.9 300.0,558.0 270.4,505.9 217.7,580.2 213.6,489.2 156.2,523.8 163.8,457.2 85.4,486.0 125.0,412.5 65.3,407.2 100.4,358.6 11.0,341.6 92.0,300.0 36.7,262.1 100.4,241.4 41.7,182.0 125.0,187.5 105.0,131.0 163.8,142.8 142.1,54.4 213.6,110.8 225.1,44.8 270.4,94.1" fill="#2A1240" transform="translate(14 16)"/>
+        <polygon points="300.0,8.0 329.6,94.1 374.9,44.8 386.4,110.8 453.5,61.1 436.2,142.8 495.0,131.0 475.0,187.5 565.6,178.7 499.6,241.4 563.3,262.1 508.0,300.0 581.1,340.4 499.6,358.6 534.7,407.2 475.0,412.5 520.7,491.2 436.2,457.2 443.8,523.8 386.4,489.2 380.0,572.5 329.6,505.9 300.0,558.0 270.4,505.9 217.7,580.2 213.6,489.2 156.2,523.8 163.8,457.2 85.4,486.0 125.0,412.5 65.3,407.2 100.4,358.6 11.0,341.6 92.0,300.0 36.7,262.1 100.4,241.4 41.7,182.0 125.0,187.5 105.0,131.0 163.8,142.8 142.1,54.4 213.6,110.8 225.1,44.8 270.4,94.1" fill="#EF3438"/>
+        <polygon points="300.0,38.0 327.0,111.9 367.1,71.6 378.9,127.2 437.3,86.3 424.4,156.4 475.3,148.1 459.8,197.3 538.3,191.2 482.3,246.5 535.6,266.1 490.0,300.0 551.4,336.1 482.3,353.5 511.0,396.4 459.8,402.7 498.0,471.6 424.4,443.6 428.7,500.2 378.9,472.8 371.6,543.7 327.0,488.1 300.0,532.0 273.0,488.1 226.2,551.4 221.1,472.8 171.3,500.2 175.6,443.6 108.0,466.3 140.2,402.7 89.0,396.4 117.7,353.5 40.7,337.3 110.0,300.0 64.4,266.1 117.7,246.5 69.0,194.5 140.2,197.3 124.7,148.1 175.6,156.4 158.4,79.6 221.1,127.2 232.9,71.6 273.0,111.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" opacity="0.55"/>
       </svg>
-      <img class="pc-illustration" src="images/order-steps.png" alt="Step 1: upload a photo. Step 2: I draw it. Step 3: receive it by email." loading="lazy">
+      <img class="pc-illustration" src="images/process-steps.webp" alt="Step 1: upload a photo. Step 2: I draw it. Step 3: receive it by email." loading="lazy">
     </div>
     <div class="pc-content">
       <p class="pc-kicker">No Event Needed</p>
@@ -143,30 +126,11 @@
   <a class="portal-card is-event" href="live-events.html">
     <div class="pc-illustration-wrap">
       <svg class="art-blob" viewBox="0 0 600 600" aria-hidden="true" focusable="false">
-        <defs>
-          <radialGradient id="splatFallEvent" cx="50%" cy="50%" r="50%">
-            <stop offset="0" stop-color="#fff" stop-opacity="1"/>
-            <stop offset="0.42" stop-color="#fff" stop-opacity="0.9"/>
-            <stop offset="0.75" stop-color="#fff" stop-opacity="0.35"/>
-            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-          </radialGradient>
-          <filter id="splatterEvent" x="-25%" y="-25%" width="150%" height="150%" color-interpolation-filters="sRGB">
-            <feTurbulence type="fractalNoise" baseFrequency="0.012" numOctaves="3" seed="21" result="warp"/>
-            <feDisplacementMap in="SourceGraphic" in2="warp" scale="120" xChannelSelector="R" yChannelSelector="G" result="shape"/>
-            <feTurbulence type="fractalNoise" baseFrequency="0.55" numOctaves="2" seed="8" result="fine"/>
-            <feColorMatrix in="fine" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  1.4 0 0 0 0" result="fineA"/>
-            <feTurbulence type="fractalNoise" baseFrequency="0.05" numOctaves="2" seed="4" result="blot"/>
-            <feColorMatrix in="blot" type="matrix" values="0 0 0 0 0  0 0 0 0 0  0 0 0 0 0  0.9 0 0 0 0" result="blotA"/>
-            <feComposite in="fineA" in2="blotA" operator="arithmetic" k1="0" k2="0.8" k3="0.5" k4="0" result="mix"/>
-            <feComposite in="shape" in2="mix" operator="arithmetic" k1="0" k2="2.6" k3="1.0" k4="-0.9" result="sum"/>
-            <feComponentTransfer in="sum" result="hard"><feFuncA type="linear" slope="14" intercept="-6.3"/></feComponentTransfer>
-            <feFlood flood-color="#E1503B" result="red"/>
-            <feComposite in="red" in2="hard" operator="in"/>
-          </filter>
-        </defs>
-        <circle cx="300" cy="300" r="235" fill="url(#splatFallEvent)" filter="url(#splatterEvent)"/>
+        <polygon points="300.0,8.0 329.6,94.1 374.9,44.8 386.4,110.8 453.5,61.1 436.2,142.8 495.0,131.0 475.0,187.5 565.6,178.7 499.6,241.4 563.3,262.1 508.0,300.0 581.1,340.4 499.6,358.6 534.7,407.2 475.0,412.5 520.7,491.2 436.2,457.2 443.8,523.8 386.4,489.2 380.0,572.5 329.6,505.9 300.0,558.0 270.4,505.9 217.7,580.2 213.6,489.2 156.2,523.8 163.8,457.2 85.4,486.0 125.0,412.5 65.3,407.2 100.4,358.6 11.0,341.6 92.0,300.0 36.7,262.1 100.4,241.4 41.7,182.0 125.0,187.5 105.0,131.0 163.8,142.8 142.1,54.4 213.6,110.8 225.1,44.8 270.4,94.1" fill="#2A1240" transform="translate(14 16)"/>
+        <polygon points="300.0,8.0 329.6,94.1 374.9,44.8 386.4,110.8 453.5,61.1 436.2,142.8 495.0,131.0 475.0,187.5 565.6,178.7 499.6,241.4 563.3,262.1 508.0,300.0 581.1,340.4 499.6,358.6 534.7,407.2 475.0,412.5 520.7,491.2 436.2,457.2 443.8,523.8 386.4,489.2 380.0,572.5 329.6,505.9 300.0,558.0 270.4,505.9 217.7,580.2 213.6,489.2 156.2,523.8 163.8,457.2 85.4,486.0 125.0,412.5 65.3,407.2 100.4,358.6 11.0,341.6 92.0,300.0 36.7,262.1 100.4,241.4 41.7,182.0 125.0,187.5 105.0,131.0 163.8,142.8 142.1,54.4 213.6,110.8 225.1,44.8 270.4,94.1" fill="#EF3438"/>
+        <polygon points="300.0,38.0 327.0,111.9 367.1,71.6 378.9,127.2 437.3,86.3 424.4,156.4 475.3,148.1 459.8,197.3 538.3,191.2 482.3,246.5 535.6,266.1 490.0,300.0 551.4,336.1 482.3,353.5 511.0,396.4 459.8,402.7 498.0,471.6 424.4,443.6 428.7,500.2 378.9,472.8 371.6,543.7 327.0,488.1 300.0,532.0 273.0,488.1 226.2,551.4 221.1,472.8 171.3,500.2 175.6,443.6 108.0,466.3 140.2,402.7 89.0,396.4 117.7,353.5 40.7,337.3 110.0,300.0 64.4,266.1 117.7,246.5 69.0,194.5 140.2,197.3 124.7,148.1 175.6,156.4 158.4,79.6 221.1,127.2 232.9,71.6 273.0,111.9" fill="none" stroke="#FFFFFF" stroke-width="3" stroke-linejoin="round" opacity="0.55"/>
       </svg>
-      <img class="pc-illustration" src="images/hero-artist-drawing.webp" alt="Illustrated artist sketching on a drawing board" loading="lazy">
+      <img class="pc-illustration" src="images/artist-easel.webp" alt="Illustrated artist sketching on a drawing board" loading="lazy">
     </div>
     <div class="pc-content">
       <p class="pc-kicker">For Your Event</p>
@@ -178,7 +142,7 @@
 </div>
 
 <div class="portal-foot">
-  <a href="mailto:scampart@gmail.com">scampart@gmail.com</a>
+  <a href="mailto:scampart@gmail.com">scampart@gmail.com</a> <span class="sep">&middot;</span> <a href="https://scampart.com/">See My Professional Work &#8594;</a>
 </div>
 
 <script>
